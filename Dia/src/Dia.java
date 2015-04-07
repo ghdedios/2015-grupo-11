@@ -6,10 +6,10 @@ public class Dia {
 	private Local local;
 	
 public Dia () {
+	local = new Local();
 	Ventas = new ArrayList<Venta>();
 	teclado = new Scanner(System.in);
 	System.out.println("Presione Enter para ingresar venta o presione 'q' para terminar:");
-	local = new Local();
 	while (!teclado.nextLine().equals("q")){
 		Venta unaVenta = new Venta();
 		Ventas.add(unaVenta);
