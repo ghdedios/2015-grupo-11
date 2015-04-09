@@ -2,10 +2,12 @@ import java.util.*;
 
 public class Venta {
 	private Scanner teclado;
+	private Local local;
 	private Prenda prenda;
 	private double cantidad;
 	
 	public Venta(){
+		local = new Local();
 		prenda = new Prenda();
 		teclado = new Scanner(System.in);
 		System.out.print("Ingrese cantidad vendida:\n");
@@ -13,13 +15,12 @@ public class Venta {
 		
 	}
 	
-	public double precioPrenda(double valorLocal){
-		return ( (valorLocal + prenda.Precio() ) * prenda.Tipo() );
-		
+	public double precioPrenda(){
+		return ( (local.valorNegocio() + prenda.Precio() ) * prenda.Tasa() );
 	}
 	
-	public double precioVenta(double precioLocal){
-		return (precioPrenda(precioLocal) * cantidad);
+	public double precioVenta(){
+		return (precioPrenda() * cantidad);
 	}
 	
 //	public static void main(String[] args){

@@ -2,17 +2,23 @@ import java.util.*;
 
 
 public class Prenda {
-	//ATRIBUTOS
 	private Scanner teclado;
 	private int precio;
 	private Tasa tasa;
-	
-	//METODOS
-	
+	public double Tipo (){
+		return tasa.valor();
+	}
+	public double Tasa(){
+		return tasa.valor();
+	}
+	public int Precio () {
+		return precio;
+	}
 	public Prenda () {
 		System.out.print("Ingrese tipo de prenda: \"saco\", \"pantalon\" o \"camisa\".\n");
 		teclado = new Scanner(System.in);
-		String tipoDePrenda = teclado.nextLine();
+		String tipoDePrenda;
+		tipoDePrenda = teclado.nextLine();
 		while (true){
 			switch (tipoDePrenda) {
 				case "saco" : 
@@ -34,15 +40,6 @@ public class Prenda {
 		}
 		tasa = new Tasa();
 	}
-	
-	public double Tipo (){
-		return tasa.valor();
-	}
-	
-	public int Precio () {
-		return this.precio;
-	}
-	
 //	public static void main(String[] args) {
 //		Prenda macowins;
 //		macowins = new Prenda();
