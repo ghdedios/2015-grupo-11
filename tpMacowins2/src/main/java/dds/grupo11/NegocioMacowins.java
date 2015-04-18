@@ -1,10 +1,16 @@
 package dds.grupo11;
+import java.time.*;
 import java.util.*;
 
 public class NegocioMacowins {
 	
 	private Collection<Venta> ventas = new ArrayList<Venta>();
-	private Date fecha;
+	private LocalDate fecha;
+	private double valorNegocio = 100;
+	
+	public double valorFijoDeNegocio(){
+		return this.valorNegocio;
+	}
 	
 	public void agregarVenta(Venta unaVenta){
 		this.ventas.add(unaVenta);
@@ -12,9 +18,7 @@ public class NegocioMacowins {
 	
 	public void realizarVenta(int cantidadVendida, Prenda prendaVendida){
 		
-		Venta ventaARealizar = new Venta();
-		ventaARealizar.prenda(prendaVendida);
-		ventaARealizar.cantidad(cantidadVendida);
+		Venta ventaARealizar = new Venta(prendaVendida, cantidadVendida);
 		this.agregarVenta(ventaARealizar);
 	}
 	
