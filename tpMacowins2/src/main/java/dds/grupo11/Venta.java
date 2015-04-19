@@ -1,14 +1,15 @@
 package dds.grupo11;
-import java.util.*;
+import java.time.*;
+
 
 public class Venta {
 	public Venta (Prenda prenda, int cantidad){
-		this.fecha = new Date();
+		this.fecha = LocalDate.now();
 		this.prenda = prenda;
 		this.cantidad = cantidad;
 	}
 	
-	private Date fecha;
+	private LocalDate fecha;
 	private Prenda prenda;
 	private int cantidad;
 	
@@ -24,7 +25,7 @@ public class Venta {
 		this.cantidad = unaCantidad;
 	}
 
-	public Date fecha() {
+	public LocalDate fecha() {
 		return this.fecha;
 	}
 }

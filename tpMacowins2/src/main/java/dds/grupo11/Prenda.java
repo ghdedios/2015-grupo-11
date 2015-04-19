@@ -8,7 +8,7 @@ public abstract class Prenda {
 	public abstract double  precioBase();
 	
 	public double tasaImportacion(){
-		return this.esImportada == true ? 1.3 : 1.0;
+	return this.esImportada ? 1.3 : 1.0;
 	}
 	
 	public double precioFinal(){
