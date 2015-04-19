@@ -2,6 +2,11 @@ package dds.grupo11;
 import java.util.*;
 
 public class Venta {
+	public Venta (Prenda prenda, int cantidad){
+		this.fecha = new Date();
+		this.prenda = prenda;
+		this.cantidad = cantidad;
+	}
 	
 	private Date fecha;
 	private Prenda prenda;

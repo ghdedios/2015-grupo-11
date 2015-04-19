@@ -2,16 +2,11 @@ package dds.grupo11;
 
 public class Sarkany implements Marca {
 	
-	public double coeficienteDeMarca(Prenda prenda){
-		if(prenda.precioBase()>500){
-			return 1.35;
-		}else{
-			return 1.1;
-		}
-			
-		}
+	public double coeficienteDeMarca(double precio){
+		return precio>500 ? 1.35 : 1.1;
 		
 	}
+}
 	
 
 
