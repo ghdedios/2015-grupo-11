@@ -1,23 +1,19 @@
 package dds.grupo11;
 
 public abstract class Prenda {
-	private int valorFijoNegocio;
-	private Marca marca;
-	private boolean esImportada;
+	protected NegocioMacowins negocio;
+	protected Marca marca;
+	protected boolean esImportada;
 	
 	public abstract double  precioBase();
 	
 	public double tasaImportacion(){
-		if(this.esImportada == true){
-			return 1.3;
-		}else{
-			return 1.0;
-		}
+	return this.esImportada ? 1.3 : 1.0;
 	}
 	
 	public double precioFinal(){
-		return (this.valorFijoNegocio + this.precioBase()) 
-				* this.tasaImportacion() * this.marca.coeficienteDeMarca(this);
+		return (this.negocio.valorFijoDeNegocio()+ this.precioBase()) 
+				* this.tasaImportacion() * this.marca.coeficienteDeMarca(this.precioBase());
  	}
 	
 
