@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: dds.grupo11.CamisaTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.11 sec <<< FAILURE!
-elPrecioFinalDeUnaCamisaImportadaEsElCorrecto(dds.grupo11.CamisaTest)  Time elapsed: 0.02 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.075 sec <<< FAILURE!
+elPrecioFinalDeUnaCamisaImportadaEsElCorrecto(dds.grupo11.CamisaTest)  Time elapsed: 0.011 sec  <<< ERROR!
 java.lang.NullPointerException
 	at dds.grupo11.Prenda.precioFinal(Prenda.java:15)
 	at dds.grupo11.CamisaTest.elPrecioFinalDeUnaCamisaImportadaEsElCorrecto(CamisaTest.java:15)
