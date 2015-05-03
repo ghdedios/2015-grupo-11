@@ -1,6 +1,6 @@
 package dds.grupo11;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals; 
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,22 +9,20 @@ import org.junit.Test;
 
 public class TestUsuarioGonzalo {
 
-	private Usuario usuario;
+	private UsuarioValido usuarioGonzalo;
 	
 	
 	@Before
 	public void setUp(){
 		
-		double altura= (double) 1.65;
-		double peso= 67;
-		usuario = new Usuario(altura,peso);
+		usuarioGonzalo = new UsuarioValido(1.65,67);
 		
 	}
 	
 	@Test
-	public void usuarioCalculaIndiceDeMasaCorporalCorrectamente() throws Exception {
+	public void usuarioGonzaloCalculaIndiceDeMasaCorporalCorrectamente() throws Exception {
 		
-		assertEquals ( (double) 24.61, (double) usuario.calularIndiceDeMasaCorporal(),0.2);
+		assertEquals ( (double) 24.61, (double) usuarioGonzalo.calularIndiceDeMasaCorporal(),0.2);
 		
 	}
 	

@@ -4,11 +4,6 @@ import java.time.LocalDate;
 import java.util.*;
 public class Usuario {
 	
-	private String nombre;
-	private double altura;
-	private double peso;
-	private LocalDate fechaNac;
-	private int sexo;
 	private Collection <String> comidasPreferidas = new HashSet();
 	private Collection<String> comidasQueDisgustan = new HashSet();
 	private Collection<Condicion> condicionesPreexistentes = new HashSet();
@@ -16,23 +11,9 @@ public class Usuario {
 	private String rutina;
 	
 	
-	
-	public Usuario (double altura, double peso){
-		this.altura = altura;
-		this.peso = peso;
+	//Todos los parametros altura sexo fehadeNac etc estan en usuarioMinimo
+	//Hay que hacer un constructor piola en UsuarioMinimo que no rompa tests,
+	//Evaluar si sexo y fechadenac van a usuario o usuarioMinimo.
 		
-	}
-	
-	public double altura(){
-		return this.altura;
-	}
-	public double peso(){
-		return this.peso;
-	}
-
-	public double calularIndiceDeMasaCorporal(){
-		return this.peso/(this.altura*this.altura);
-	}
-	
 	
 }
