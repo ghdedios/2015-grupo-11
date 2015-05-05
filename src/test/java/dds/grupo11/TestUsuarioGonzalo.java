@@ -9,13 +9,13 @@ import org.junit.Test;
 
 public class TestUsuarioGonzalo {
 
-	private UsuarioValido usuarioGonzalo;
+	private UsuarioMinimo usuarioGonzalo;
 	
 	
 	@Before
 	public void setUp(){
 		
-		usuarioGonzalo = new UsuarioValido(1.65,67);
+		usuarioGonzalo = new UsuarioMinimo(1.65,67);
 		
 	}
 	

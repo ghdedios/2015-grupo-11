@@ -7,12 +7,12 @@ import org.junit.Test;
 
 public class TestUsuarioNicolas {
 	
-	private UsuarioValido nicolas;
+	private UsuarioMinimo nicolas;
 	
 	@Before
 	public void setUp(){
 		
-		nicolas = new UsuarioValido(1.83,77);
+		nicolas = new UsuarioMinimo(1.83,77);
 	}
 	
 	@Test

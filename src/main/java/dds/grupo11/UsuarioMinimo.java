@@ -2,7 +2,7 @@ package dds.grupo11;
 
 import java.time.LocalDate;
 
-public class UsuarioValido {
+public class UsuarioMinimo {
 
 	
 	private String nombre;
@@ -12,7 +12,7 @@ public class UsuarioValido {
 	private int sexo;
 	
 
-	public UsuarioValido (double altura, double peso){
+	public UsuarioMinimo (double altura, double peso){
 		this.altura = altura;
 		this.peso = peso;
 		
