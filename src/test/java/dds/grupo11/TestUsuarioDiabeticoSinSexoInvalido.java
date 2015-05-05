@@ -10,12 +10,12 @@ import org.junit.Test;
 public class TestUsuarioDiabeticoSinSexoInvalido {
 	
 	private Usuario usuario;
-	private Diabetico condicion;
+	private Diabetico condicion = new Diabetico();
 	
 	@Before
 	public void setUp(){
 		usuario = new Usuario("Nombre de Prueba", 1.80,75,LocalDate.of(2000,1,1),null);
-		usuario.agregarCondicion(condicion);
+		usuario.setearCondicion(condicion);
 	}
 	
 	@Test

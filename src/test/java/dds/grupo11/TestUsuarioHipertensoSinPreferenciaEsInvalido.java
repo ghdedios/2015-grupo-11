@@ -10,12 +10,12 @@ import org.junit.Test;
 public class TestUsuarioHipertensoSinPreferenciaEsInvalido {
 	
 	private Usuario usuario;
-	private Hipertenso condicion;
+	private Hipertenso condicion = new Hipertenso();
 	
 	@Before
 	public void setUp(){
 		usuario = new Usuario("Nombre de Prueba", 1.80,75,LocalDate.of(2000,1,1),"Hombre");
-		usuario.agregarCondicion(condicion);
+		usuario.setearCondicion(condicion);
 	}
 	
 	@Test

@@ -10,29 +10,27 @@ import org.junit.Test;
 public class TestUsuarioConBuenIMCyCondicionesPreexistentesSubsanadasEsUsuarioSano {
 	
 	private Usuario usuario;
-	private Hipertenso hipertenso;
-	private Diabetico diabetico;
-	private Vegano vegano;
-	private Celiaco celiaco;
+	private Hipertenso hipertenso = new Hipertenso();
+	private Diabetico diabetico = new Diabetico();
+	private Vegano vegano = new Vegano();
+	private Celiaco celiaco = new Celiaco();
 	
 	
 	@Before
 	public void setUp(){
-		usuario = new Usuario("Nombre de Prueba", 1.80,70,LocalDate.of(2000,1,1),"Hombre");
-		usuario.agregarCondicion(hipertenso);
-		usuario.agregarCondicion(diabetico);
-		usuario.agregarCondicion(vegano);
-		usuario.agregarCondicion(celiaco);
-		usuario.agregarRutina("Fuerte");
-		usuario.agregarComidaPreferida("Fruta");
-		
-		
+		usuario = new Usuario("Nombre de Prueba", 1.80,80,LocalDate.of(2000,1,1),"Hombre");
+		usuario.setearCondicion(hipertenso);
+		usuario.setearCondicion(diabetico);
+		usuario.setearCondicion(vegano);
+		usuario.setearCondicion(celiaco);
+		usuario.setearRutina(5);
+		usuario.setearComidaPreferida("frutas");
 	}
 	
 	@Test
 	public void usuarioHipertensoSinComidasPreferidasEsInvalido() throws Exception{
-		assertTrue(usuario.calularIndiceDeMasaCorporal() > 18);
-		assertTrue(usuario.calularIndiceDeMasaCorporal() < 30);
-		assertTrue(usuario.esSaludable());
+		assertTrue(usuario.calcularImc() > 18);
+		assertTrue(usuario.calcularImc() < 30);
+		assertTrue(usuario.sigueRutinaSaludable());
 	}
 }

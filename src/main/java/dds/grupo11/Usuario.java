@@ -48,11 +48,9 @@ public class Usuario extends UsuarioMinimo{
 		return a&&b&&c;
 	}
 	
-	
 	//Condiciones de usuario valido
 	public boolean tieneAlgunaComidaPreferida(){
-		return comidasPreferidas.size() > 0;
-			
+		return comidasPreferidas.size() > 0;	
 	}
 	
 	public boolean indicaSexo(){
@@ -64,25 +62,37 @@ public class Usuario extends UsuarioMinimo{
 		
 	}
 	//Fin de condiciones de usuario valido
-	
-<<<<<<< HEAD
+
 	public boolean sigueRutinaSaludable(){
-		boolean a = calcularIndiceDeMasaCorporal()>18;
-		boolean b = calcularIndiceDeMasaCorporal()<30;
+		boolean a = calcularImc()>18;
+		boolean b = calcularImc()<30;
 		boolean c = condicionesPreexistentes.isEmpty();
 		boolean d = condicionesPreexistentes.stream().allMatch(condicion->condicion.cumpleCondicionDeRutinaSaludable(this));
 		return (a&&b&&(c||d));
 	}
 	
 	public boolean subsanarDiabetes(){
-		return (peso>70 && rutina>3);
-=======
+		return ((peso<70) || (rutina>3));
+	}
+
 	public boolean LeGustanLasFrutas(){
 		return comidasPreferidas.contains("frutas");
 	}
 	
 	public int getRutina(){
 		return this.rutina;
->>>>>>> 801a69616a365db9cb57cc8939e2549b295872e6
+	}
+
+	public void setearRutina(int i) {
+		this.rutina=i;
+	}
+	
+	public void setearCondicion (Condicion condicion){
+		condicionesPreexistentes.add(condicion);
+	}
+
+	public void setearComidaPreferida(String comida) {
+		comidasPreferidas.add(comida);
+		
 	}
 }

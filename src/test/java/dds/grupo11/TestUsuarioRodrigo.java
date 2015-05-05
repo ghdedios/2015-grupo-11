@@ -17,6 +17,6 @@ public class TestUsuarioRodrigo {
 	
 	@Test
 	public void usuarioRodrigoCalculaIndiceDeMasaCorporalCorrectamente() throws Exception {
-		assertEquals((double)25.029,(double)rodrigo.calcularIndiceDeMasaCorporal(),0.1);
+		assertEquals((double)25.029,(double)rodrigo.calcularImc(),0.1);
 	}
 }

@@ -8,7 +8,7 @@ public class Hipertenso implements Condicion {
 
 	
 	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario) {
-		return usuario.getRutina() == 4;
+		return usuario.getRutina() == 5;
 	} 
 
 }

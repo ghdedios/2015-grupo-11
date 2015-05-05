@@ -10,25 +10,25 @@ import org.junit.Test;
 public class TestUsuarioVeganoQueComeCarnesEsInvalido {
 	
 	private Usuario usuarioPollo, usuarioChivito, usuarioChori, usuarioCarne;
-	private Vegano condicion;
+	private Vegano condicion = new Vegano();
 	
 	@Before
 	public void setUp(){
 		usuarioPollo = new Usuario("Nombre de Prueba Pollo", 1.80,75,LocalDate.of(2000,1,1),"Hombre");
-		usuarioPollo.agregarCondicion(condicion);
-		usuarioPollo.agregarComidaPreferida("Pollo");
+		usuarioPollo.setearCondicion(condicion);
+		usuarioPollo.setearComidaPreferida("pollo");
 		
 		usuarioChivito = new Usuario("Nombre de Prueba Chivito", 1.80,75,LocalDate.of(2000,1,1),"Hombre");
-		usuarioChivito.agregarCondicion(condicion);
-		usuarioChivito.agregarComidaPreferida("Chivito");
+		usuarioChivito.setearCondicion(condicion);
+		usuarioChivito.setearComidaPreferida("chivito");
 		
 		usuarioChori = new Usuario("Nombre de Prueba Chori", 1.80,75,LocalDate.of(2000,1,1),"Hombre");
-		usuarioChori.agregarCondicion(condicion);
-		usuarioChori.agregarComidaPreferida("Chori");
+		usuarioChori.setearCondicion(condicion);
+		usuarioChori.setearComidaPreferida("chori");
 		
 		usuarioCarne = new Usuario("Nombre de Prueba Carne", 1.80,75,LocalDate.of(2000,1,1),"Hombre");
-		usuarioCarne.agregarCondicion(condicion);
-		usuarioCarne.agregarComidaPreferida("Carne");
+		usuarioCarne.setearCondicion(condicion);
+		usuarioCarne.setearComidaPreferida("carne");
 	}
 	
 	@Test
