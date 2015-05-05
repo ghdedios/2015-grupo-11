@@ -2,5 +2,5 @@ package dds.grupo11;
 
 public interface Condicion {
 	
-	boolean cumpleValidez(Usuario usuario);
+	public abstract boolean cumpleCondicionPreexistente(Usuario usuario);
 }

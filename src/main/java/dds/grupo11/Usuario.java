@@ -41,7 +41,7 @@ public class Usuario extends UsuarioMinimo{
 		boolean a;
 		boolean b;
 		boolean c;
-		a= condicionesPreexistentes.stream().allMatch(condicion-> condicion.cumpleValidez(this));
+		a= condicionesPreexistentes.stream().allMatch(condicion-> condicion.cumpleCondicionPreexistente(this));
 		b= nombre.length()>4;
 		c= fechaNac.isBefore(LocalDate.now());
 		return a&&b&&c;
@@ -49,29 +49,18 @@ public class Usuario extends UsuarioMinimo{
 	
 	
 	//Condiciones de usuario valido
-	public boolean tienePreferencia(){
-		if (comidasPreferidas.size()>0){
-			return true;
-		}else {
-			return false;
-		}
+	public boolean tieneAlgunaComidaPreferida(){
+		return comidasPreferidas.size() > 0;
+			
 	}
 	
-	public boolean tieneSexo(){
-		if (sexo()!=null){
-			return true;
-		} else {
-			return false;
-		}
+	public boolean indicaSexo(){
+		return sexo()!=null;
 	}
 	
 	public boolean noTieneCarne(Collection <String> comidasProhibidas){
-
-		if(comidasPreferidas.contains(comidasProhibidas)){
-			return true;
-		} else {
-			return false;
-		}
+		return !(comidasPreferidas.stream().anyMatch(comida->comidasProhibidas.contains(comida)));
+		
 	}
 	//Fin de condiciones de usuario valido
 }

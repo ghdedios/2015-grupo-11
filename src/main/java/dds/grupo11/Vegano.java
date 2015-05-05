@@ -5,8 +5,8 @@ import java.util.HashSet;
 
 public class Vegano implements Condicion {
 	
-	public boolean cumpleValidez(Usuario usuario){
-		Collection <String> comidasProhibidas = new HashSet();
+	public boolean cumpleCondicionPreexistente(Usuario usuario){
+		Collection <String> comidasProhibidas = new HashSet<String>();
 		comidasProhibidas.add("pollo");
 		comidasProhibidas.add("carne");
 		comidasProhibidas.add("chivito");
@@ -18,4 +18,5 @@ public class Vegano implements Condicion {
 			return false;
 		}
 	}
+
 }
