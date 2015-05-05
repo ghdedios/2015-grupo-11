@@ -12,11 +12,7 @@ public class Vegano implements Condicion {
 		comidasProhibidas.add("chivito");
 		comidasProhibidas.add("chori");
 		
-		if(usuario.noTieneCarne(comidasProhibidas)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+		return (usuario.noTieneCarne(comidasProhibidas));
 
+	}
 }
