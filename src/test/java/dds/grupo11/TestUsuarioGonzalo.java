@@ -16,8 +16,9 @@ public class TestUsuarioGonzalo {
 	
 	@Before
 	public void setUp(){
+		
 		usuarioGonzalo = new UsuarioMinimo("Gonzalo",1.65,67,LocalDate.of(1994,3,19),"Hombre");
-	
+		
 	}
 	
 	@Test
