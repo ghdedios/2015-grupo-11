@@ -9,7 +9,7 @@ public class Ingrediente {
 	
 	public Ingrediente(String nombre, double cant, String unidad) {
 		this.nombre = nombre;
-		if (cant==0 && unidad=="" ){
+		if (cant==0 && unidad==null ){
 			this.cantidad=0;
 			this.unidad="C/N";
 		}else{

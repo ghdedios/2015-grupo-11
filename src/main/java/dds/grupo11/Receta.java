@@ -34,4 +34,20 @@ public class Receta {
 	public boolean esPrivada(){
 		return this.esPrivada;
 	}
+
+	public String getNombre() {
+		return this.nombreDelPlato;
+	}
+
+	public String getDificultad() {
+		return this.dificultad;
+	}
+
+	public String getExplicacion() {
+		return this.explicacion;
+	}
+
+	public String getTemporada() {
+		return this.temporada;
+	}
 }
