@@ -6,5 +6,10 @@ public class Diabetico implements Condicion {
 		return (usuario.tieneAlgunaComidaPreferida() && usuario.indicaSexo());
 	}
 
-	
+	@Override
+	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

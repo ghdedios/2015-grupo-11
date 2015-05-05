@@ -12,7 +12,7 @@ public class Usuario extends UsuarioMinimo{
 	private Collection<String> comidasQueDisgustan = new HashSet();
 	private Collection<Condicion> condicionesPreexistentes = new HashSet();
 	private Collection<Receta> recetas = new HashSet();
-	private String rutina;
+	private int rutina;
 	
 	//Todos los parametros altura sexo fehadeNac etc estan en usuarioMinimo
 	//Hay que hacer un constructor piola en UsuarioMinimo que no rompa tests,
@@ -41,7 +41,8 @@ public class Usuario extends UsuarioMinimo{
 		boolean a;
 		boolean b;
 		boolean c;
-		a= condicionesPreexistentes.stream().allMatch(condicion-> condicion.cumpleCondicionPreexistente(this));
+		a= condicionesPreexistentes.stream().
+				allMatch(condicion-> condicion.cumpleCondicionPreexistente(this));
 		b= nombre.length()>4;
 		c= fechaNac.isBefore(LocalDate.now());
 		return a&&b&&c;
@@ -63,4 +64,12 @@ public class Usuario extends UsuarioMinimo{
 		
 	}
 	//Fin de condiciones de usuario valido
+	
+	public boolean LeGustanLasFrutas(){
+		return comidasPreferidas.contains("frutas");
+	}
+	
+	public int getRutina(){
+		return this.rutina;
+	}
 }

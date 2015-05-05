@@ -6,4 +6,9 @@ public class Hipertenso implements Condicion {
 		return usuario.tieneAlgunaComidaPreferida();
 	}
 
+	
+	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario) {
+		return usuario.getRutina() == 4;
+	} 
+
 }
