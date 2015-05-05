@@ -31,7 +31,7 @@ public class UsuarioMinimo {
 		return this.sexo;
 	}	
 	
-	public double calularIndiceDeMasaCorporal(){
+	public double calcularIndiceDeMasaCorporal(){
 		return this.peso/(this.altura*this.altura);
 	}
 

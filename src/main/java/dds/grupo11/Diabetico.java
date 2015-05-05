@@ -6,5 +6,7 @@ public class Diabetico implements Condicion {
 		return (usuario.tieneAlgunaComidaPreferida() && usuario.indicaSexo());
 	}
 
-	
+	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario){
+		return (usuario.subsanarDiabetes());
+	}
 }

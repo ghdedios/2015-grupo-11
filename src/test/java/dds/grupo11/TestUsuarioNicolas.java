@@ -20,6 +20,6 @@ public class TestUsuarioNicolas {
 	@Test
 	public void usuarioNicolasCalculaIndiceDeMasaCorporalCorrectamente() throws Exception {
 		
-		assertEquals((double)22.99,(double)nicolas.calularIndiceDeMasaCorporal(),0.1);
+		assertEquals((double)22.99,(double)nicolas.calcularIndiceDeMasaCorporal(),0.1);
 	}
 }

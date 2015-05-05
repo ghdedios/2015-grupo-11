@@ -12,7 +12,7 @@ public class Usuario extends UsuarioMinimo{
 	private Collection<String> comidasQueDisgustan = new HashSet();
 	private Collection<Condicion> condicionesPreexistentes = new HashSet();
 	private Collection<Receta> recetas = new HashSet();
-	private String rutina;
+	private int rutina;
 	
 	//Todos los parametros altura sexo fehadeNac etc estan en usuarioMinimo
 	//Hay que hacer un constructor piola en UsuarioMinimo que no rompa tests,
@@ -63,4 +63,16 @@ public class Usuario extends UsuarioMinimo{
 		
 	}
 	//Fin de condiciones de usuario valido
+	
+	public boolean sigueRutinaSaludable(){
+		boolean a = calcularIndiceDeMasaCorporal()>18;
+		boolean b = calcularIndiceDeMasaCorporal()<30;
+		boolean c = condicionesPreexistentes.isEmpty();
+		boolean d = condicionesPreexistentes.stream().allMatch(condicion->condicion.cumpleCondicionDeRutinaSaludable(this));
+		return (a&&b&&(c||d));
+	}
+	
+	public boolean subsanarDiabetes(){
+		return (peso>70 && rutina>3);
+	}
 }
