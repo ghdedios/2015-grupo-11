@@ -41,7 +41,8 @@ public class Usuario extends UsuarioMinimo{
 		boolean a;
 		boolean b;
 		boolean c;
-		a= condicionesPreexistentes.stream().allMatch(condicion-> condicion.cumpleCondicionPreexistente(this));
+		a= condicionesPreexistentes.stream().
+				allMatch(condicion-> condicion.cumpleCondicionPreexistente(this));
 		b= nombre.length()>4;
 		c= fechaNac.isBefore(LocalDate.now());
 		return a&&b&&c;
@@ -64,6 +65,7 @@ public class Usuario extends UsuarioMinimo{
 	}
 	//Fin de condiciones de usuario valido
 	
+<<<<<<< HEAD
 	public boolean sigueRutinaSaludable(){
 		boolean a = calcularIndiceDeMasaCorporal()>18;
 		boolean b = calcularIndiceDeMasaCorporal()<30;
@@ -74,5 +76,13 @@ public class Usuario extends UsuarioMinimo{
 	
 	public boolean subsanarDiabetes(){
 		return (peso>70 && rutina>3);
+=======
+	public boolean LeGustanLasFrutas(){
+		return comidasPreferidas.contains("frutas");
+	}
+	
+	public int getRutina(){
+		return this.rutina;
+>>>>>>> 801a69616a365db9cb57cc8939e2549b295872e6
 	}
 }

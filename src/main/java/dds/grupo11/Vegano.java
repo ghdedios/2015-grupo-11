@@ -15,4 +15,8 @@ public class Vegano implements Condicion {
 		return (usuario.noTieneCarne(comidasProhibidas));
 
 	}
+
+	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario) {
+		return usuario.LeGustanLasFrutas();
+	}
 }
