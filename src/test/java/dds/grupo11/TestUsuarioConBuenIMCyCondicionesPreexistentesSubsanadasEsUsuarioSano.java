@@ -23,7 +23,7 @@ public class TestUsuarioConBuenIMCyCondicionesPreexistentesSubsanadasEsUsuarioSa
 		usuario.setearCondicion(diabetico);
 		usuario.setearCondicion(vegano);
 		usuario.setearCondicion(celiaco);
-		usuario.setearRutina(5);
+		usuario.setearRutina("INTENSIVO");
 		usuario.setearComidaPreferida("frutas");
 	}
 	
