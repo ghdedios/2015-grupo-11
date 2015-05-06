@@ -19,7 +19,7 @@ public class TestUsuarioNoPuedeModificarRecetaPrivadaAjena {
 		usuarioAjeno = new Usuario("Usuario ajeno a receta",1.80,75,LocalDate.of(1990,1,1),"Hombre");
 		recetaPrivada = new Receta(true,"Receta privada","Dificil","Expliacion","Otoño");
 		
-		usuarioDueño.agregarRecetaPrivada(recetaPrivada);
+		usuarioDueño.agregarReceta(recetaPrivada);
 	}
 	
 	@Test

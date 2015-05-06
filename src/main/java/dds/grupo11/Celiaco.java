@@ -9,4 +9,8 @@ public class Celiaco implements Condicion {
 	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario) {
 		return true;
 	}
+
+	public boolean validarReceta(Receta unaReceta) {
+		return true;
+	}
 }

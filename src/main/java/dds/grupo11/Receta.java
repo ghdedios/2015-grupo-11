@@ -46,4 +46,23 @@ public class Receta {
 	public String getTemporada() {
 		return this.temporada;
 	}
+
+	/*public boolean cantidadDeAzucar() {
+		return condimentos.stream().anyMatch(condimento -> (condimento.getNombre() && condimento.getCantidad()>100));
+	}*/
+	
+	public double cantidadDeAzucar(){
+		return condimentos.stream().filter(condimento -> condimento.getNombre() == "Azucar").findFirst().get().getCantidad();
+	}
+	
+	public void agregarIngrediente(Ingrediente ingrediente){
+		this.ingredientes.add(ingrediente);
+	}
+	
+	public void agregarCondimento(Ingrediente condimento){
+		this.condimentos.add(condimento);
+	}
+	
+
+
 }

@@ -34,12 +34,16 @@ public class Usuario extends UsuarioMinimo{
 			if (temporada.isEmpty()){
 				temporada=receta.getTemporada();
 			}
-		this.agregarReceta(new Receta(true, nombre, dificultad, explicacion, temporada));	
+			
+			Receta recetaModificada = new Receta(true, nombre, dificultad, explicacion, temporada);
+			agregarReceta(recetaModificada);
 		}
 	}
 	
 	public void agregarReceta(Receta receta){
-		recetas.add(receta);
+		if(condicionesPreexistentes.stream().allMatch(condicion -> condicion.validarReceta(receta))){
+		recetas.add(receta); 
+		}
 	}
 
 	public boolean usuarioValido(){
@@ -103,5 +107,9 @@ public class Usuario extends UsuarioMinimo{
 
 	public double getPeso() {
 		return this.peso;
+	}
+
+	public Collection <Receta> getRecetas() {
+		return this.recetas;
 	}
 }

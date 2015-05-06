@@ -20,15 +20,15 @@ public class Ingrediente {
 	}
 	
 	//Getters, no se si hacen falta. Cualquier cosa se borran
-	public String nombre(){
+	public String getNombre(){
 		return this.nombre;
 	}
 	
-	public String unidad(){
+	public String getUnidad(){
 		return this.unidad;
 	}
 	
-	public double cantidad(){
+	public double getCantidad(){
 		return this.cantidad;
 	}
 	

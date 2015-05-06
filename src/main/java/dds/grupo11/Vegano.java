@@ -19,4 +19,10 @@ public class Vegano implements Condicion {
 	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario) {
 		return usuario.LeGustanLasFrutas();
 	}
+
+	@Override
+	public boolean validarReceta(Receta unaReceta) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
