@@ -5,24 +5,25 @@ import java.util.HashSet;
 
 public class Vegano implements Condicion {
 	
-	public boolean cumpleCondicionPreexistente(Usuario usuario){
-		Collection <String> comidasProhibidas = new HashSet<String>();
+	private Collection <String> comidasProhibidas = new HashSet<String>();
+	
+	public Vegano(){
 		comidasProhibidas.add("pollo");
 		comidasProhibidas.add("carne");
 		comidasProhibidas.add("chivito");
 		comidasProhibidas.add("chori");
-		
+	}
+	
+	public boolean cumpleCondicionPreexistente(Usuario usuario){
 		return (usuario.noTieneCarne(comidasProhibidas));
-
 	}
 
 	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario) {
 		return usuario.LeGustanLasFrutas();
 	}
 
-	@Override
 	public boolean validarReceta(Receta unaReceta) {
-		// TODO Auto-generated method stub
 		return false;
+		//	return !(this.condimentos.stream().anyMatch(condimento->condimentos.contains(condimento)));
 	}
 }

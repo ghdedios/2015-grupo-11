@@ -62,6 +62,10 @@ public class Receta {
 	public void agregarCondimento(Ingrediente condimento){
 		this.condimentos.add(condimento);
 	}
+
+	public boolean noTieneCondimentosEspecificos(Collection<Ingrediente> condimentos) {
+		return !(this.condimentos.stream().anyMatch(condimento->condimentos.contains(condimento)));
+	}
 	
 
 
