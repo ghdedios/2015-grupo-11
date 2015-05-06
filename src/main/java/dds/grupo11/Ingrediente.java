@@ -9,22 +9,16 @@ public class Ingrediente {
 	
 	public Ingrediente(String nombre, double cant, String unidad) {
 		this.nombre = nombre;
-		if (cant==0 && unidad==null ){
-			this.cantidad=0;
-			this.unidad="C/N";
-		}else{
-			this.cantidad=cant;
-			this.unidad = unidad;
-		}
+		this.cantidad =cant;
+		this.unidad = unidad;
 	}
 	
-	/*
-	public Ingrediente (String nombre){
+	
+	public Ingrediente (String nombre, double cantidad){
 		this.nombre=nombre;
-		this.cantidad=0;
-		this.unidad="C/N";
+		this.cantidad=cantidad;
 	}
-	*/
+	
 	//Getters, no se si hacen falta. Cualquier cosa se borran
 	public String nombre(){
 		return this.nombre;

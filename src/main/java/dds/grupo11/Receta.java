@@ -13,6 +13,7 @@ public class Receta {
 	private String explicacion;
 	private String temporada;
 	private String dificultad;
+	private double totalCalorias;
 	
 	public Receta(boolean privada, String nombre, String dificultad, String explicacion, String temporada){
 		this.esPrivada=privada;
@@ -23,14 +24,9 @@ public class Receta {
 	}
 	
 	public boolean esValida(){
-		return (this.totalCalorias()>10 && this.totalCalorias()<5000 && this.ingredientes.size()>0);
+		return (this.totalCalorias>10 && this.totalCalorias<5000 && this.ingredientes.size()>0);
 	}
 
-	private int totalCalorias() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 	public boolean esPrivada(){
 		return this.esPrivada;
 	}
