@@ -6,7 +6,7 @@ import java.util.HashSet;
 public class Receta {
 
 	private boolean esPrivada;
-	private Collection <Receta> subreceta = new HashSet();
+	private Collection <Receta> subrecetas = new HashSet();
 	private Collection <Ingrediente> ingredientes = new HashSet();
 	private Collection <Ingrediente> condimentos = new HashSet();
 	private String nombreDelPlato;
@@ -47,12 +47,8 @@ public class Receta {
 		return this.temporada;
 	}
 
-	/*public boolean cantidadDeAzucar() {
-		return condimentos.stream().anyMatch(condimento -> (condimento.getNombre() && condimento.getCantidad()>100));
-	}*/
-	
 	public double cantidadDeAzucar(){
-		return condimentos.stream().filter(condimento -> condimento.getNombre() == "Azucar").findFirst().get().getCantidad();
+		return condimentos.stream().filter(condimento -> condimento.getNombre().equals("Azucar")).findFirst().get().getCantidad();
 	}
 	
 	public void agregarIngrediente(Ingrediente ingrediente){
@@ -65,5 +61,10 @@ public class Receta {
 
 	public boolean noTieneCondimentosEspecificos(Collection<Ingrediente> condimentos) {
 		return !(this.condimentos.stream().anyMatch(condimento->condimentos.contains(condimento)));
+	}
+
+	public void agregarSubreceta(Receta subrecetaReutilizable) {
+		this.subrecetas.add(subrecetaReutilizable);
+		
 	}
 }
