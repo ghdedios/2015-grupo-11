@@ -15,14 +15,13 @@ public class Hipertenso implements Condicion {
 	}
 
 	public boolean validarReceta(Receta unaReceta) {
-		Collection <String> condimentosProhibidos = new HashSet<String>();
+		Collection <Ingrediente> condimentosProhibidos = new HashSet<Ingrediente>();
 		Ingrediente condimentoCaldo = new Ingrediente("caldo",10);
 		Ingrediente condimentoSal = new Ingrediente("sal",10);
 		unaReceta.agregarCondimento(condimentoCaldo);
 		unaReceta.agregarCondimento(condimentoSal);
 			
-		return false;
-		//return (unaReceta.noTieneCondimentosEspecificos(condimentosProhibidos));
+		return (unaReceta.noTieneCondimentosEspecificos(condimentosProhibidos));
 	} 
 
 }

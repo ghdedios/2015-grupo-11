@@ -66,7 +66,4 @@ public class Receta {
 	public boolean noTieneCondimentosEspecificos(Collection<Ingrediente> condimentos) {
 		return !(this.condimentos.stream().anyMatch(condimento->condimentos.contains(condimento)));
 	}
-	
-
-
 }

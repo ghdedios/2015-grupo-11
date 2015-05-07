@@ -2,20 +2,28 @@ package dds.grupo11;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
 public class Vegano implements Condicion {
 	
-	private Collection <String> comidasProhibidas = new HashSet<String>();
+	private Collection <Ingrediente> comidasProhibidas = new HashSet<Ingrediente>();
 	
 	public Vegano(){
-		comidasProhibidas.add("pollo");
-		comidasProhibidas.add("carne");
-		comidasProhibidas.add("chivito");
-		comidasProhibidas.add("chori");
+		Ingrediente pollo = new Ingrediente ("pollo",1);
+		Ingrediente carne = new Ingrediente ("carne",1);
+		Ingrediente chivito = new Ingrediente ("chivito",1);
+		Ingrediente chori = new Ingrediente ("chori",1);
+		comidasProhibidas.add(pollo);
+		comidasProhibidas.add(carne);
+		comidasProhibidas.add(chivito);
+		comidasProhibidas.add(chori);
 	}
 	
 	public boolean cumpleCondicionPreexistente(Usuario usuario){
-		return (usuario.noTieneCarne(comidasProhibidas));
+		Collection <String> nombreDeComidasProhibidas = new HashSet <String>();
+		nombreDeComidasProhibidas= comidasProhibidas.stream().map(comida->comida.getNombre()).
+				collect(Collectors.toSet());
+		return (usuario.noTieneCarne(nombreDeComidasProhibidas));
 	}
 
 	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario) {
@@ -23,7 +31,6 @@ public class Vegano implements Condicion {
 	}
 
 	public boolean validarReceta(Receta unaReceta) {
-		return false;
-		//	return !(this.condimentos.stream().anyMatch(condimento->condimentos.contains(condimento)));
+		return unaReceta.noTieneCondimentosEspecificos(comidasProhibidas);
 	}
 }
