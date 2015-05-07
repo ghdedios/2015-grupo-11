@@ -8,10 +8,13 @@ public class Usuario extends UsuarioMinimo{
 		super(nombre, altura, peso, fechaNac, sexo);
 		}
 
+	//FIXME: VER EL TIPO DE LA COLECCION JUNTO CON LA QUE ESTA EN VEGANO
 	private Collection <String> comidasPreferidas = new HashSet();
+	//TODO: SI MODIFICAN LA DE ARRIBA MIREN ESTA TMB
 	private Collection<String> comidasQueDisgustan = new HashSet();
 	private Collection<Condicion> condicionesPreexistentes = new HashSet();
 	private Collection<Receta> recetas = new HashSet();
+	//TODO: CANBIAR POR ENUM
 	private String rutina;
 	
 	//Todos los parametros altura sexo fehadeNac etc estan en usuarioMinimo
@@ -20,6 +23,7 @@ public class Usuario extends UsuarioMinimo{
 		return !receta.esPrivada() || recetas.contains(receta);
 	}
 	
+	//FIXME: clonar receta original 
 	public void agregarRecetaModificada(Receta receta, String nombre, String dificultad, String explicacion, String temporada){
 		if(verReceta(receta)){
 			Receta recetaModificada = new Receta(true, nombre, dificultad, explicacion, temporada);
@@ -33,6 +37,12 @@ public class Usuario extends UsuarioMinimo{
 		}
 	}
 
+	
+	public boolean usuarioTieneCamposObligatorios(){
+		return (this.nombre != null && this.peso > 0 && this.altura>0 && this.sexo != null && this.fechaNac != null);
+		
+	}
+	//FIXME
 	public boolean usuarioValido(){
 		boolean a;
 		boolean b;
@@ -41,7 +51,8 @@ public class Usuario extends UsuarioMinimo{
 				allMatch(condicion-> condicion.cumpleCondicionPreexistente(this));
 		b= nombre.length()>4;
 		c= fechaNac.isBefore(LocalDate.now());
-		return a&&b&&c;
+		return a&&b&&c&&usuarioTieneCamposObligatorios();
+		//agregar validaciones de parametros para instanciar usuario nombre,sexo,bla bl bla
 	}
 	
 	//Condiciones de usuario valido
@@ -59,6 +70,7 @@ public class Usuario extends UsuarioMinimo{
 	}
 	//Fin de condiciones de usuario valido
 
+	//FIXME
 	public boolean sigueRutinaSaludable(){
 		boolean a = calcularImc()>=18;
 		boolean b = calcularImc()<=30;

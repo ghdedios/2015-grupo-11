@@ -14,8 +14,8 @@ public class TestUsuarioDiabeticoQueQuiereAgregarUnaRecetaConMasDeCienGramosDeAz
 	private Receta recetaParaAgregar;
 	private Ingrediente condimentoAzucar; 
 	private Ingrediente condimentoOregano; 
-	@Before
 	
+	@Before
 	public void setUp(){
 		usuario = new Usuario("Nombre de prueba",1.80,75,LocalDate.of(2000,1,1),null);
 		usuario.setearCondicion(diabetico);

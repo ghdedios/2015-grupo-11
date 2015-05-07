@@ -11,6 +11,7 @@ public class Receta {
 	private Collection <Ingrediente> condimentos = new HashSet();
 	private String nombreDelPlato;
 	private String explicacion;
+	//TODO: CAMBIAR POR ENUM
 	private String temporada;
 	private String dificultad;
 	private double totalCalorias;

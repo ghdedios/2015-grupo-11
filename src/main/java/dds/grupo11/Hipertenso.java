@@ -14,6 +14,7 @@ public class Hipertenso implements Condicion {
 		return usuario.getRutina() == "INTENSIVO";
 	}
 
+	//FIXME
 	public boolean validarReceta(Receta unaReceta) {
 		Collection <Ingrediente> condimentosProhibidos = new HashSet<Ingrediente>();
 		Ingrediente condimentoCaldo = new Ingrediente("caldo",10);

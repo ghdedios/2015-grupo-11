@@ -5,12 +5,13 @@ import java.time.LocalDate;
 public class UsuarioMinimo {
 	
 	protected String nombre;
-	protected double altura;
-	protected double peso;
+	protected double altura=0;
+	protected double peso=0;
 	protected LocalDate fechaNac;
 	protected String sexo;
 	
 
+	//TODO: VALIDAR DATOS DEL USUARIO
 	public UsuarioMinimo (String nombre, double altura, double peso,LocalDate fechaNac, String sexo){
 		this.nombre = nombre;
 		this.altura = altura;
