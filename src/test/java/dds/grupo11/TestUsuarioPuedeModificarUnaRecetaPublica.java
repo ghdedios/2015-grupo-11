@@ -17,7 +17,7 @@ public class TestUsuarioPuedeModificarUnaRecetaPublica {
 	public void setUp(){
 		usuario = new Usuario("Usuario duenio de receta",1.80,75,LocalDate.of(1990,1,1),"Hombre");
 		recetaPublica = new Receta(false,"Receta publica","Facil","Explicacion","Otonio");
-		usuario.agregarRecetaModificada(recetaPublica, "Receta publica nueva","" , "Explicacion nueva","");
+		usuario.agregarRecetaModificada(recetaPublica, "Receta publica nueva","Facil","Explicacion nueva","Otonio");
 	}
 	
 	@Test

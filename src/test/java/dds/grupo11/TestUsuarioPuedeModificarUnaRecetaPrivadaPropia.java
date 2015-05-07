@@ -18,7 +18,7 @@ public class TestUsuarioPuedeModificarUnaRecetaPrivadaPropia {
 		usuarioDuenio = new Usuario("Usuario duenio de receta",1.80,75,LocalDate.of(1990,1,1),"Hombre");
 		recetaPrivada = new Receta(true,"Receta privada","Dificil","Explicacion","Otonio");
 		usuarioDuenio.agregarReceta(recetaPrivada);
-		usuarioDuenio.agregarRecetaModificada(recetaPrivada, "Receta privada nueva","" , "Explicacion nueva","");
+		usuarioDuenio.agregarRecetaModificada(recetaPrivada, "Receta privada nueva","Dificil","Explicacion nueva","Otonio");
 	}
 	
 	@Test

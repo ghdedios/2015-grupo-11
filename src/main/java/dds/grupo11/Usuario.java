@@ -22,19 +22,6 @@ public class Usuario extends UsuarioMinimo{
 	
 	public void agregarRecetaModificada(Receta receta, String nombre, String dificultad, String explicacion, String temporada){
 		if(verReceta(receta)){
-			if (nombre.isEmpty()){
-				nombre=receta.getNombre();
-			}
-			if (dificultad.isEmpty()){
-				dificultad=receta.getDificultad();
-			}
-			if (explicacion.isEmpty()){
-				explicacion=receta.getExplicacion();
-			}
-			if (temporada.isEmpty()){
-				temporada=receta.getTemporada();
-			}
-			
 			Receta recetaModificada = new Receta(true, nombre, dificultad, explicacion, temporada);
 			agregarReceta(recetaModificada);
 		}
