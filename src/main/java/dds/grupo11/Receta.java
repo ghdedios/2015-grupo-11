@@ -67,4 +67,8 @@ public class Receta {
 		this.subrecetas.add(subrecetaReutilizable);
 		
 	}
+
+	public Collection<Receta> getSubrecetas() {
+		return this.subrecetas;
+	}
 }

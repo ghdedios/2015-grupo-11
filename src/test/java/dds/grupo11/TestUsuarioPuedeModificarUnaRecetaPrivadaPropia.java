@@ -23,9 +23,9 @@ public class TestUsuarioPuedeModificarUnaRecetaPrivadaPropia {
 	
 	@Test
 	public void usuarioDuenioDeRecetaDebePoderModificarla() throws Exception{
-		assertTrue(usuarioDuenio.getRecetas().stream().filter(receta -> receta.getNombre()=="Receta privada nueva").findFirst().get().getNombre().equalsIgnoreCase("Receta privada nueva"));
-		assertTrue(usuarioDuenio.getRecetas().stream().filter(receta -> receta.getNombre()=="Receta privada nueva").findFirst().get().getExplicacion().equalsIgnoreCase("Explicacion nueva"));
-		assertTrue(usuarioDuenio.getRecetas().stream().filter(receta -> receta.getNombre()=="Receta privada nueva").findFirst().get().getDificultad().equalsIgnoreCase("Dificil"));
-		assertTrue(usuarioDuenio.getRecetas().stream().filter(receta -> receta.getNombre()=="Receta privada nueva").findFirst().get().getTemporada().equalsIgnoreCase("Otonio"));
+		assertTrue(usuarioDuenio.getRecetas().stream().filter(receta -> receta.getNombre().equals("Receta privada nueva")).findFirst().get().getNombre().equalsIgnoreCase("Receta privada nueva"));
+		assertTrue(usuarioDuenio.getRecetas().stream().filter(receta -> receta.getNombre().equals("Receta privada nueva")).findFirst().get().getExplicacion().equalsIgnoreCase("Explicacion nueva"));
+		assertTrue(usuarioDuenio.getRecetas().stream().filter(receta -> receta.getNombre().equals("Receta privada nueva")).findFirst().get().getDificultad().equalsIgnoreCase("Dificil"));
+		assertTrue(usuarioDuenio.getRecetas().stream().filter(receta -> receta.getNombre().equals("Receta privada nueva")).findFirst().get().getTemporada().equalsIgnoreCase("Otonio"));
 	}
 }
