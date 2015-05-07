@@ -17,14 +17,13 @@ public class TestUsuarioNoPuedeModificarRecetaPrivadaAjena {
 	public void setUp(){
 		usuarioDueño = new Usuario("Usuario due�o de receta",1.80,75,LocalDate.of(1990,1,1),"Hombre");
 		usuarioAjeno = new Usuario("Usuario ajeno a receta",1.80,75,LocalDate.of(1990,1,1),"Hombre");
-		recetaPrivada = new Receta(true,"Receta privada","Dificil","Expliacion","Oto�o");
-		
+		recetaPrivada = new Receta(true,"Receta privada","Dificil","Explicacion","Oto�o");
 		usuarioDueño.agregarReceta(recetaPrivada);
+		usuarioAjeno.agregarRecetaModificada(recetaPrivada, "Receta privada nueva","" , "Explicacion nueva","");
 	}
 	
 	@Test
 	public void usuarioAjenoARecetaNoDebePoderModificarla() throws Exception{
-		assertFalse("Usuario ajeno a la receta esta pudiendo modificarla",usuarioAjeno.verReceta(recetaPrivada));
-		//Hay que cambiar verReceta por algun metodo que intente modificar la receta
+		assertTrue(usuarioAjeno.getRecetas().isEmpty());
 	}
 }
