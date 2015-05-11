@@ -12,12 +12,18 @@ public class UsuarioMinimo {
 	
 
 	//TODO: VALIDAR DATOS DEL USUARIO
+	//Corregido en metodo
 	public UsuarioMinimo (String nombre, double altura, double peso,LocalDate fechaNac, String sexo){
 		this.nombre = nombre;
 		this.altura = altura;
 		this.peso = peso;
 		this.fechaNac = fechaNac;
 		this.sexo = sexo;
+	}
+	
+	public boolean usuarioTieneCamposObligatorios(){
+		return (this.nombre != null && this.peso > 0 && this.altura>0 && this.sexo != null && this.fechaNac != null);
+		
 	}
 	
 	public double altura(){

@@ -9,11 +9,13 @@ public class Usuario extends UsuarioMinimo{
 		}
 
 	//FIXME: VER EL TIPO DE LA COLECCION JUNTO CON LA QUE ESTA EN VEGANO
-	private Collection <String> comidasPreferidas = new HashSet();
+	//Corregido
+	private Collection <Ingrediente> comidasPreferidas = new HashSet<Ingrediente>();
 	//TODO: SI MODIFICAN LA DE ARRIBA MIREN ESTA TMB
-	private Collection<String> comidasQueDisgustan = new HashSet();
-	private Collection<Condicion> condicionesPreexistentes = new HashSet();
-	private Collection<Receta> recetas = new HashSet();
+	//Corregido
+	private Collection<Ingrediente> comidasQueDisgustan = new HashSet<Ingrediente>();
+	private Collection<Condicion> condicionesPreexistentes = new HashSet<Condicion>();
+	private Collection<Receta> recetas = new HashSet<Receta>();
 	//TODO: CANBIAR POR ENUM
 	private String rutina;
 	
@@ -26,7 +28,8 @@ public class Usuario extends UsuarioMinimo{
 	//FIXME: clonar receta original 
 	public void agregarRecetaModificada(Receta receta, String nombre, String dificultad, String explicacion, String temporada){
 		if(verReceta(receta)){
-			Receta recetaModificada = new Receta(true, nombre, dificultad, explicacion, temporada);
+			Receta recetaModificada = receta;
+			recetaModificada.asignarValores(true, nombre, dificultad, explicacion, temporada);
 			agregarReceta(recetaModificada);
 		}
 	}
@@ -36,23 +39,18 @@ public class Usuario extends UsuarioMinimo{
 		recetas.add(receta); 
 		}
 	}
-
 	
-	public boolean usuarioTieneCamposObligatorios(){
-		return (this.nombre != null && this.peso > 0 && this.altura>0 && this.sexo != null && this.fechaNac != null);
-		
-	}
-	//FIXME
+	//FIXME agregar validaciones de parametros para instanciar usuario nombre,sexo,bla bl bla
+	//Corregido
 	public boolean usuarioValido(){
-		boolean a;
-		boolean b;
-		boolean c;
-		a= condicionesPreexistentes.stream().
-				allMatch(condicion-> condicion.cumpleCondicionPreexistente(this));
-		b= nombre.length()>4;
-		c= fechaNac.isBefore(LocalDate.now());
-		return a&&b&&c&&usuarioTieneCamposObligatorios();
-		//agregar validaciones de parametros para instanciar usuario nombre,sexo,bla bl bla
+		return usuarioCumpleCondicionesPreexistentes() &&
+		nombre.length()>4 &&
+		fechaNac.isBefore(LocalDate.now()) &&
+		this.usuarioTieneCamposObligatorios();
+	}
+	
+	public boolean usuarioCumpleCondicionesPreexistentes(){
+		return condicionesPreexistentes.stream().allMatch(condicion-> condicion.cumpleCondicionPreexistente(this));
 	}
 	
 	//Condiciones de usuario valido
@@ -64,19 +62,20 @@ public class Usuario extends UsuarioMinimo{
 		return this.sexo;
 	}
 	
-	public boolean noTieneCarne(Collection <String> comidasProhibidas){
-		return !(comidasPreferidas.stream().anyMatch(comida->comidasProhibidas.contains(comida)));
-		
+	public boolean noTieneCarne(Collection <Ingrediente> comidasProhibidas){
+		return (comidasPreferidas.stream().filter(comida -> comidasProhibidas.contains(comida))).count() > 0;
 	}
 	//Fin de condiciones de usuario valido
 
 	//FIXME
+	//Corregido
 	public boolean sigueRutinaSaludable(){
-		boolean a = calcularImc()>=18;
-		boolean b = calcularImc()<=30;
-		boolean c = condicionesPreexistentes.isEmpty();
-		boolean d = condicionesPreexistentes.stream().allMatch(condicion->condicion.cumpleCondicionDeRutinaSaludable(this));
-		return (a&&b&&(c||d));
+		return calcularImc()>=18 && calcularImc()<=30 &&
+		 (condicionesPreexistentes.isEmpty() || cumpleTodasLasCondiciones());
+	}
+
+	public boolean cumpleTodasLasCondiciones() {
+		return condicionesPreexistentes.stream().allMatch(condicion->condicion.cumpleCondicionDeRutinaSaludable(this));
 	}
 	
 	public boolean subsanarDiabetes(){
@@ -84,7 +83,7 @@ public class Usuario extends UsuarioMinimo{
 	}
 
 	public boolean LeGustanLasFrutas(){
-		return comidasPreferidas.contains("frutas");
+		return comidasPreferidas.stream().map(ingrediente -> ingrediente.getNombre()).anyMatch(nombre -> nombre.equals("frutas"));
 	}
 	
 	public String getRutina(){
@@ -99,7 +98,7 @@ public class Usuario extends UsuarioMinimo{
 		condicionesPreexistentes.add(condicion);
 	}
 
-	public void setearComidaPreferida(String comida) {
+	public void setearComidaPreferida(Ingrediente comida) {
 		comidasPreferidas.add(comida);
 		
 	}

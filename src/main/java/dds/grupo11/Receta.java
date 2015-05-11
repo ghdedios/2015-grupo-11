@@ -11,12 +11,16 @@ public class Receta {
 	private Collection <Ingrediente> condimentos = new HashSet();
 	private String nombreDelPlato;
 	private String explicacion;
-	//TODO: CAMBIAR POR ENUM
+	//TODO: CAMBIAR POR ENUM //FALTA
 	private String temporada;
 	private String dificultad;
 	private double totalCalorias;
 	
 	public Receta(boolean privada, String nombre, String dificultad, String explicacion, String temporada){
+		asignarValores(privada,nombre,dificultad,explicacion,temporada);
+	}
+	
+	public void asignarValores(boolean privada, String nombre, String dificultad, String explicacion, String temporada){
 		this.esPrivada=privada;
 		this.nombreDelPlato=nombre;
 		this.dificultad=dificultad;

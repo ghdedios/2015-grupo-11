@@ -9,33 +9,41 @@ import org.junit.Test;
 
 public class TestUsuarioVeganoQueComeCarnesEsInvalido {
 	
-	private Usuario usuarioPollo, usuarioChivito, usuarioChori, usuarioCarne;
+	private Usuario usuario;
 	private Vegano condicion = new Vegano();
+	private Ingrediente pollo;
+	private Ingrediente chivito;
+	private Ingrediente chori;
+	private Ingrediente carne;
 	
 	@Before
 	public void setUp(){
-		usuarioPollo = new Usuario("Nombre de Prueba Pollo", 1.80,75,LocalDate.of(2000,1,1),"Hombre");
-		usuarioPollo.setearCondicion(condicion);
-		usuarioPollo.setearComidaPreferida("pollo");
-		
-		usuarioChivito = new Usuario("Nombre de Prueba Chivito", 1.80,75,LocalDate.of(2000,1,1),"Hombre");
-		usuarioChivito.setearCondicion(condicion);
-		usuarioChivito.setearComidaPreferida("chivito");
-		
-		usuarioChori = new Usuario("Nombre de Prueba Chori", 1.80,75,LocalDate.of(2000,1,1),"Hombre");
-		usuarioChori.setearCondicion(condicion);
-		usuarioChori.setearComidaPreferida("chori");
-		
-		usuarioCarne = new Usuario("Nombre de Prueba Carne", 1.80,75,LocalDate.of(2000,1,1),"Hombre");
-		usuarioCarne.setearCondicion(condicion);
-		usuarioCarne.setearComidaPreferida("carne");
+		usuario = new Usuario("Nombre de Prueba Vegano", 1.80,75,LocalDate.of(2000,1,1),"Hombre");
+		usuario.setearCondicion(condicion);
+		pollo = new Ingrediente("pollo",1,"kilo");
+		chivito = new Ingrediente("chivito",2,"kilos");
+		chori = new Ingrediente("chori",0.5,"kilos");
+		carne = new Ingrediente("carne",1,"kilo");
+		usuario.setearComidaPreferida(pollo);
+		usuario.setearComidaPreferida(chivito);
+		usuario.setearComidaPreferida(chori);
+		usuario.setearComidaPreferida(carne);
 	}
 	
 	@Test
-	public void usuarioHipertensoSinComidasPreferidasEsInvalido() throws Exception{
-		assertFalse(usuarioPollo.usuarioValido());
-		assertFalse(usuarioChivito.usuarioValido());
-		assertFalse(usuarioCarne.usuarioValido());
-		assertFalse(usuarioChori.usuarioValido());
+	public void usuarioVeganoTienePolloComoComidaPreferidaNoEsValido() throws Exception{
+		assertFalse(usuario.usuarioValido());
+	}
+	@Test
+	public void usuarioVeganoTieneChivitoComoComidaPreferidaNoEsValido() throws Exception{
+		assertFalse(usuario.usuarioValido());
+	}
+	@Test
+	public void usuarioVeganoTieneChoriComoComidaPreferidaNoEsValido() throws Exception{
+		assertFalse(usuario.usuarioValido());
+	}
+	@Test
+	public void usuarioVeganoTieneCarneComoComidaPreferidaNoEsValido() throws Exception{
+		assertFalse(usuario.usuarioValido());
 	}
 }

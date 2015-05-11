@@ -14,7 +14,7 @@ public class TestUsuarioConBuenIMCyCondicionesPreexistentesSubsanadasEsUsuarioSa
 	private Diabetico diabetico = new Diabetico();
 	private Vegano vegano = new Vegano();
 	private Celiaco celiaco = new Celiaco();
-	
+	private Ingrediente frutas;
 	
 	@Before
 	public void setUp(){
@@ -24,13 +24,12 @@ public class TestUsuarioConBuenIMCyCondicionesPreexistentesSubsanadasEsUsuarioSa
 		usuario.setearCondicion(vegano);
 		usuario.setearCondicion(celiaco);
 		usuario.setearRutina("INTENSIVO");
-		usuario.setearComidaPreferida("frutas");
+		frutas =new Ingrediente("frutas",1,"kg");
+		usuario.setearComidaPreferida(frutas);
 	}
 	
 	@Test
-	public void usuarioHipertensoSinComidasPreferidasEsInvalido() throws Exception{
-		assertTrue(usuario.calcularImc() > 18);
-		assertTrue(usuario.calcularImc() < 30);
+	public void usuarioConIMCValidoYCondicionesPreexistentesSubsanadasEsUsuarioSano() throws Exception{
 		assertTrue(usuario.sigueRutinaSaludable());
 	}
 }

@@ -9,10 +9,10 @@ public class Vegano implements Condicion {
 	private Collection <Ingrediente> comidasProhibidas = new HashSet<Ingrediente>();
 	
 	public Vegano(){
-		Ingrediente pollo = new Ingrediente ("pollo",1);
-		Ingrediente carne = new Ingrediente ("carne",1);
-		Ingrediente chivito = new Ingrediente ("chivito",1);
-		Ingrediente chori = new Ingrediente ("chori",1);
+		Ingrediente pollo = new Ingrediente ("pollo",1,"kilo");
+		Ingrediente carne = new Ingrediente ("carne",1,"kilo");
+		Ingrediente chivito = new Ingrediente ("chivito",10,"kilos");
+		Ingrediente chori = new Ingrediente ("chori",1,"kilo");
 		comidasProhibidas.add(pollo);
 		comidasProhibidas.add(carne);
 		comidasProhibidas.add(chivito);
@@ -20,10 +20,10 @@ public class Vegano implements Condicion {
 	}
 	
 	public boolean cumpleCondicionPreexistente(Usuario usuario){
-		Collection <String> nombreDeComidasProhibidas = new HashSet <String>();
-		nombreDeComidasProhibidas= comidasProhibidas.stream().map(comida->comida.getNombre()).
-				collect(Collectors.toSet());
-		return (usuario.noTieneCarne(nombreDeComidasProhibidas));
+		//Collection <String> nombreDeComidasProhibidas = new HashSet <String>();
+		//comidasProhibidas = comidasProhibidas.stream().map(comida->comida.getNombre()).
+		//		collect(Collectors.toSet());
+		return (usuario.noTieneCarne(comidasProhibidas));
 	}
 
 	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario) {
