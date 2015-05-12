@@ -1,6 +1,8 @@
 package dds.grupo11;
 
 import java.time.LocalDate;
+import dds.grupo11.Receta.Dificultad;
+import dds.grupo11.Receta.Temporada;
 import java.util.*;
 public class Usuario extends UsuarioMinimo{
 	
@@ -17,16 +19,16 @@ public class Usuario extends UsuarioMinimo{
 	private Collection<Condicion> condicionesPreexistentes = new HashSet<Condicion>();
 	private Collection<Receta> recetas = new HashSet<Receta>();
 	//TODO: CANBIAR POR ENUM
-	private String rutina;
-	
-	//Todos los parametros altura sexo fehadeNac etc estan en usuarioMinimo
+	//corregido
+	public enum Rutina{LEVE,NADA, MEDIANO, FUERTE, INTENSIVO}; 
+	private Rutina rutina; 
 	
 	public boolean verReceta(Receta receta){
 		return !receta.esPrivada() || recetas.contains(receta);
 	}
 	
 	//FIXME: clonar receta original 
-	public void agregarRecetaModificada(Receta receta, String nombre, String dificultad, String explicacion, String temporada){
+	public void agregarRecetaModificada(Receta receta, String nombre, Dificultad dificultad, String explicacion, Temporada temporada){
 		if(verReceta(receta)){
 			Receta recetaModificada = receta;
 			recetaModificada.asignarValores(true, nombre, dificultad, explicacion, temporada);
@@ -62,7 +64,7 @@ public class Usuario extends UsuarioMinimo{
 		return this.sexo;
 	}
 	
-	public boolean noTieneCarne(Collection <Ingrediente> comidasProhibidas){
+	public boolean noComeAnimales(Collection <Ingrediente> comidasProhibidas){
 		return (comidasPreferidas.stream().filter(comida -> comidasProhibidas.contains(comida))).count() > 0;
 	}
 	//Fin de condiciones de usuario valido
@@ -79,18 +81,18 @@ public class Usuario extends UsuarioMinimo{
 	}
 	
 	public boolean subsanarDiabetes(){
-		return ((peso<70) || (rutina=="INTENSIVO") || (rutina=="FUERTE"));
+		return ((peso<70) || (this.rutina.equals(Rutina.INTENSIVO) || (this.rutina.equals(Rutina.FUERTE))));
 	}
 
 	public boolean LeGustanLasFrutas(){
 		return comidasPreferidas.stream().map(ingrediente -> ingrediente.getNombre()).anyMatch(nombre -> nombre.equals("frutas"));
 	}
 	
-	public String getRutina(){
+	public Rutina getRutina(){
 		return this.rutina;
 	}
 
-	public void setearRutina(String rutina) {
+	public void setearRutina(Rutina rutina) {
 		this.rutina=rutina;
 	}
 	

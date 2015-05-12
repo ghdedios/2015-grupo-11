@@ -22,7 +22,7 @@ public class UsuarioMinimo {
 	}
 	
 	public boolean usuarioTieneCamposObligatorios(){
-		return (this.nombre != null && this.peso > 0 && this.altura>0 && this.sexo != null && this.fechaNac != null);
+		return (this.nombre != null) && (this.peso > 0) && (this.altura>0) && (this.sexo != null) && (this.fechaNac != null);
 		
 	}
 	

@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
+import dds.grupo11.Usuario.Rutina;
+
 public class TestUsuarioConBuenIMCyCondicionesPreexistentesSubsanadasEsUsuarioSano {
 	
 	private Usuario usuario;
@@ -15,6 +17,7 @@ public class TestUsuarioConBuenIMCyCondicionesPreexistentesSubsanadasEsUsuarioSa
 	private Vegano vegano = new Vegano();
 	private Celiaco celiaco = new Celiaco();
 	private Ingrediente frutas;
+	private Rutina rutinaIntensiva = Rutina.INTENSIVO;
 	
 	@Before
 	public void setUp(){
@@ -23,7 +26,7 @@ public class TestUsuarioConBuenIMCyCondicionesPreexistentesSubsanadasEsUsuarioSa
 		usuario.setearCondicion(diabetico);
 		usuario.setearCondicion(vegano);
 		usuario.setearCondicion(celiaco);
-		usuario.setearRutina("INTENSIVO");
+		usuario.setearRutina(rutinaIntensiva);
 		frutas =new Ingrediente("frutas",1,"kg");
 		usuario.setearComidaPreferida(frutas);
 	}

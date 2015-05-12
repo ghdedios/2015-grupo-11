@@ -6,25 +6,29 @@ import java.util.HashSet;
 public class Receta {
 
 	private boolean esPrivada;
-	private Collection <Receta> subrecetas = new HashSet();
-	private Collection <Ingrediente> ingredientes = new HashSet();
-	private Collection <Ingrediente> condimentos = new HashSet();
+	private Collection <Receta> subrecetas = new HashSet<Receta>();
+	private Collection <Ingrediente> ingredientes = new HashSet<Ingrediente>();
+	private Collection <Ingrediente> condimentos = new HashSet<Ingrediente>();
 	private String nombreDelPlato;
 	private String explicacion;
-	//TODO: CAMBIAR POR ENUM //FALTA
-	private String temporada;
-	private String dificultad;
+	//TODO: CAMBIAR POR ENUM
+	//CORREGIDO	
+	public enum Temporada{OTONIO,INVIERNO,PRIMAVERA,VERANO,TODO_EL_ANIO}
+	private Temporada temporada;
+	
+	public enum Dificultad{BAJA,MEDIA,ALTA,MUY_ALTA}
+	private Dificultad dificultad;
 	private double totalCalorias;
 	
-	public Receta(boolean privada, String nombre, String dificultad, String explicacion, String temporada){
+	public Receta(boolean privada, String nombre, Dificultad dificultad, String explicacion, Temporada temporada){
 		asignarValores(privada,nombre,dificultad,explicacion,temporada);
 	}
 	
-	public void asignarValores(boolean privada, String nombre, String dificultad, String explicacion, String temporada){
+	public void asignarValores(boolean privada, String nombre, Dificultad dificultad, String explicacion, Temporada temporada){
 		this.esPrivada=privada;
 		this.nombreDelPlato=nombre;
 		this.dificultad=dificultad;
-		this.explicacion=explicacion;
+		this.explicacion=explicacion;	
 		this.temporada=temporada;
 	}
 	
@@ -40,7 +44,7 @@ public class Receta {
 		return this.nombreDelPlato;
 	}
 
-	public String getDificultad() {
+	public Dificultad getDificultad() {
 		return this.dificultad;
 	}
 
@@ -48,7 +52,7 @@ public class Receta {
 		return this.explicacion;
 	}
 
-	public String getTemporada() {
+	public Temporada getTemporada() {
 		return this.temporada;
 	}
 

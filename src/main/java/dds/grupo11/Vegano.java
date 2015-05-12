@@ -2,7 +2,7 @@ package dds.grupo11;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.stream.Collectors;
+
 
 public class Vegano implements Condicion {
 	
@@ -20,10 +20,7 @@ public class Vegano implements Condicion {
 	}
 	
 	public boolean cumpleCondicionPreexistente(Usuario usuario){
-		//Collection <String> nombreDeComidasProhibidas = new HashSet <String>();
-		//comidasProhibidas = comidasProhibidas.stream().map(comida->comida.getNombre()).
-		//		collect(Collectors.toSet());
-		return (usuario.noTieneCarne(comidasProhibidas));
+		return (usuario.noComeAnimales(comidasProhibidas));
 	}
 
 	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario) {

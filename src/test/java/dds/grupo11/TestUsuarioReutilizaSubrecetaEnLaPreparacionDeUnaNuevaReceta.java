@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
+import dds.grupo11.Receta.Dificultad;
+import dds.grupo11.Receta.Temporada;
+
 public class TestUsuarioReutilizaSubrecetaEnLaPreparacionDeUnaNuevaReceta {
 	
 	private Usuario usuario;
@@ -18,8 +21,8 @@ public class TestUsuarioReutilizaSubrecetaEnLaPreparacionDeUnaNuevaReceta {
 	public void setUp(){
 		
 		usuario = new Usuario("Usuario duenio de receta",1.80,75,LocalDate.of(1990,1,1),"Hombre");
-		recetaNueva = new Receta(true,"milanesas con pure","facil","Empanar y freir milanesas.Luego..","Todo el anio");
-		subrecetaReutilizable = new Receta(true,"pure","facil","hervir,pisar,condimentar","Todo el anio");
+		recetaNueva = new Receta(true,"milanesas con pure",Dificultad.BAJA,"Empanar y freir milanesas.Luego..",Temporada.TODO_EL_ANIO);
+		subrecetaReutilizable = new Receta(true,"pure",Dificultad.BAJA,"hervir,pisar,condimentar",Temporada.TODO_EL_ANIO);
 		usuario.agregarReceta(recetaNueva);
 		recetaNueva.agregarSubreceta(subrecetaReutilizable);
 		explicacionDeLaSubreceta = recetaNueva.getSubrecetas().stream().findFirst().get().getExplicacion();

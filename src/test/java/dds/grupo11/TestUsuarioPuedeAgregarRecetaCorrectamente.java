@@ -1,10 +1,14 @@
 package dds.grupo11;
 
 import java.time.LocalDate;
+
 import static org.junit.Assert.*; 
 
 import org.junit.Before;
 import org.junit.Test;
+
+import dds.grupo11.Receta.Dificultad;
+import dds.grupo11.Receta.Temporada;
 
 public class TestUsuarioPuedeAgregarRecetaCorrectamente {
 	
@@ -14,7 +18,7 @@ public class TestUsuarioPuedeAgregarRecetaCorrectamente {
 	@Before
 	public void setUp(){
 		usuario = new Usuario("Usuario de prueba",1.80,75,LocalDate.of(2000,1,1),"Hombre");
-		receta = new Receta(false,"Receta de prueba","Dificil","Explicacion de prueba","Otoño");
+		receta = new Receta(false,"Receta de prueba",Dificultad.ALTA,"Explicacion de prueba",Temporada.OTONIO);
 		usuario.agregarReceta(receta);
 
 	}

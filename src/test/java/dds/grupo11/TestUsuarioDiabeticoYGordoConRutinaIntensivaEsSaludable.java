@@ -7,16 +7,19 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
+import dds.grupo11.Usuario.Rutina;
+
 public class TestUsuarioDiabeticoYGordoConRutinaIntensivaEsSaludable {
 	
 	private Usuario usuario;
 	private Diabetico condicion = new Diabetico();
+	private Rutina rutina = Rutina.INTENSIVO; 
 	
 	@Before
 	public void setUp(){
 		usuario = new Usuario("Nombre de Prueba", 2.0,120,LocalDate.of(2000,1,1),"Hombre");
 		usuario.setearCondicion(condicion);
-		usuario.setearRutina("INTENSIVO");
+		usuario.setearRutina(rutina);
 	}
 	
 	@Test

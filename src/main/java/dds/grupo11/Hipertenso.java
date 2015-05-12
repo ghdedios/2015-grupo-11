@@ -3,6 +3,8 @@ package dds.grupo11;
 import java.util.Collection;
 import java.util.HashSet;
 
+import dds.grupo11.Usuario.Rutina;
+
 public class Hipertenso implements Condicion {
 	
 	Collection <Ingrediente> condimentosProhibidos = new HashSet<Ingrediente>();
@@ -21,7 +23,7 @@ public class Hipertenso implements Condicion {
 
 	
 	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario) {
-		return usuario.getRutina().equals("INTENSIVO");
+		return usuario.getRutina().equals(Rutina.INTENSIVO);
 	}
 
 	//FIXME
