@@ -1,13 +1,11 @@
 package dds.grupo11;
 
-import static org.junit.Assert.*; 
+import static org.junit.Assert.*;  
 
 import java.time.LocalDate;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import dds.grupo11.Usuario.Rutina;
 
 public class TestUsuarioConBuenIMCyCondicionesPreexistentesSubsanadasEsUsuarioSano {
 	
@@ -17,7 +15,7 @@ public class TestUsuarioConBuenIMCyCondicionesPreexistentesSubsanadasEsUsuarioSa
 	private Vegano vegano = new Vegano();
 	private Celiaco celiaco = new Celiaco();
 	private Ingrediente frutas;
-	private Rutina rutinaIntensiva = Rutina.INTENSIVO;
+	private EnumRutina rutinaIntensiva = EnumRutina.INTENSIVO;
 	
 	@Before
 	public void setUp(){

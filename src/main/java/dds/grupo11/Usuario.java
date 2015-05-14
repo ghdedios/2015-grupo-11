@@ -1,8 +1,6 @@
 package dds.grupo11;
 
-import java.time.LocalDate;
-import dds.grupo11.Receta.Dificultad;
-import dds.grupo11.Receta.Temporada;
+import java.time.LocalDate; 
 import java.util.*;
 public class Usuario extends UsuarioMinimo{
 	
@@ -15,15 +13,21 @@ public class Usuario extends UsuarioMinimo{
 	private Collection<Ingrediente> comidasQueDisgustan = new HashSet<Ingrediente>();
 	private Collection<Condicion> condicionesPreexistentes = new HashSet<Condicion>();
 	private Collection<Receta> recetas = new HashSet<Receta>();
+<<<<<<< HEAD
 	public enum Rutina{LEVE,NADA, MEDIANO, FUERTE, INTENSIVO}; 
 	private Rutina rutina; 
+=======
+	//TODO: CANBIAR POR ENUM
+	//corregido
+	private EnumRutina rutina; 
+>>>>>>> 2baa64d7c4b6c8087f1069cb36ce46ec616341b1
 	
 	public boolean verReceta(Receta receta){
 		return !receta.esPrivada() || recetas.contains(receta);
 	}
 	
 	//FIXME: clonar receta original 
-	public void agregarRecetaModificada(Receta receta, String nombre, Dificultad dificultad, String explicacion, Temporada temporada){
+	public void agregarRecetaModificada(Receta receta, String nombre, EnumDificultadReceta dificultad, String explicacion, EnumTemporadaReceta temporada){
 		if(verReceta(receta)){
 			Receta recetaModificada = receta;
 			recetaModificada.asignarValores(true, nombre, dificultad, explicacion, temporada);
@@ -73,18 +77,18 @@ public class Usuario extends UsuarioMinimo{
 	}
 	
 	public boolean subsanarDiabetes(){
-		return ((peso<70) || (this.rutina.equals(Rutina.INTENSIVO) || (this.rutina.equals(Rutina.FUERTE))));
+		return ((peso<70) || (this.rutina.equals(EnumRutina.INTENSIVO) || (this.rutina.equals(EnumRutina.FUERTE))));
 	}
 
 	public boolean LeGustanLasFrutas(){
 		return comidasPreferidas.stream().map(ingrediente -> ingrediente.getNombre()).anyMatch(nombre -> nombre.equals("frutas"));
 	}
 	
-	public Rutina getRutina(){
+	public EnumRutina getRutina(){
 		return this.rutina;
 	}
 
-	public void setearRutina(Rutina rutina) {
+	public void setearRutina(EnumRutina rutina) {
 		this.rutina=rutina;
 	}
 	

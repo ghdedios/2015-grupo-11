@@ -7,9 +7,6 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
-import dds.grupo11.Receta.Temporada;
-import dds.grupo11.Receta.Dificultad;
-
 public class TestUsuarioDiabeticoQueQuiereAgregarUnaRecetaConMasDeCienGramosDeAzucarNoPuedeHacerlo {
 	
 	private Diabetico diabetico = new Diabetico();
@@ -22,7 +19,7 @@ public class TestUsuarioDiabeticoQueQuiereAgregarUnaRecetaConMasDeCienGramosDeAz
 	public void setUp(){
 		usuario = new Usuario("Nombre de prueba",1.80,75,LocalDate.of(2000,1,1),null);
 		usuario.setearCondicion(diabetico);
-		recetaParaAgregar = new Receta(false,"con mucha azucar",Dificultad.MEDIA,"algo",Temporada.OTONIO);
+		recetaParaAgregar = new Receta(false,"con mucha azucar",EnumDificultadReceta.MEDIA,"algo",EnumTemporadaReceta.OTONIO);
 		condimentoAzucar = new Ingrediente("Azucar",200);
 		condimentoOregano = new Ingrediente("Oregano",500);
 		recetaParaAgregar.agregarCondimento(condimentoAzucar);

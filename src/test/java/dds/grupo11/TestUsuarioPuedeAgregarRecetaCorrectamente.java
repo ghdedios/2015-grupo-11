@@ -7,9 +7,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import dds.grupo11.Receta.Dificultad;
-import dds.grupo11.Receta.Temporada;
-
 public class TestUsuarioPuedeAgregarRecetaCorrectamente {
 	
 	private Usuario usuario;
@@ -18,7 +15,7 @@ public class TestUsuarioPuedeAgregarRecetaCorrectamente {
 	@Before
 	public void setUp(){
 		usuario = new Usuario("Usuario de prueba",1.80,75,LocalDate.of(2000,1,1),"Hombre");
-		receta = new Receta(false,"Receta de prueba",Dificultad.ALTA,"Explicacion de prueba",Temporada.OTONIO);
+		receta = new Receta(false,"Receta de prueba",EnumDificultadReceta.ALTA,"Explicacion de prueba",EnumTemporadaReceta.OTONIO);
 		usuario.agregarReceta(receta);
 
 	}
