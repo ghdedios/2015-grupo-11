@@ -13,14 +13,9 @@ public class Usuario extends UsuarioMinimo{
 	private Collection<Ingrediente> comidasQueDisgustan = new HashSet<Ingrediente>();
 	private Collection<Condicion> condicionesPreexistentes = new HashSet<Condicion>();
 	private Collection<Receta> recetas = new HashSet<Receta>();
-<<<<<<< HEAD
-	public enum Rutina{LEVE,NADA, MEDIANO, FUERTE, INTENSIVO}; 
-	private Rutina rutina; 
-=======
-	//TODO: CANBIAR POR ENUM
-	//corregido
+	
 	private EnumRutina rutina; 
->>>>>>> 2baa64d7c4b6c8087f1069cb36ce46ec616341b1
+
 	
 	public boolean verReceta(Receta receta){
 		return !receta.esPrivada() || recetas.contains(receta);
