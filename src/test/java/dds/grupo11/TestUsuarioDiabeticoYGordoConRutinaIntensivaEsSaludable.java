@@ -7,13 +7,11 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
-import dds.grupo11.Usuario.Rutina;
-
 public class TestUsuarioDiabeticoYGordoConRutinaIntensivaEsSaludable {
 	
 	private Usuario usuario;
 	private Diabetico condicion = new Diabetico();
-	private Rutina rutina = Rutina.INTENSIVO; 
+	private EnumRutina rutina = EnumRutina.INTENSIVO; 
 	
 	@Before
 	public void setUp(){

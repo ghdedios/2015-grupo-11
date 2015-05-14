@@ -13,18 +13,15 @@ public class Receta {
 	private String explicacion;
 	//TODO: CAMBIAR POR ENUM
 	//CORREGIDO	
-	public enum Temporada{OTONIO,INVIERNO,PRIMAVERA,VERANO,TODO_EL_ANIO}
-	private Temporada temporada;
-	
-	public enum Dificultad{BAJA,MEDIA,ALTA,MUY_ALTA}
-	private Dificultad dificultad;
+	private EnumTemporadaReceta temporada;
+	private EnumDificultadReceta dificultad;
 	private double totalCalorias;
 	
-	public Receta(boolean privada, String nombre, Dificultad dificultad, String explicacion, Temporada temporada){
+	public Receta(boolean privada, String nombre, EnumDificultadReceta dificultad, String explicacion, EnumTemporadaReceta temporada){
 		asignarValores(privada,nombre,dificultad,explicacion,temporada);
 	}
 	
-	public void asignarValores(boolean privada, String nombre, Dificultad dificultad, String explicacion, Temporada temporada){
+	public void asignarValores(boolean privada, String nombre, EnumDificultadReceta dificultad, String explicacion, EnumTemporadaReceta temporada){
 		this.esPrivada=privada;
 		this.nombreDelPlato=nombre;
 		this.dificultad=dificultad;
@@ -44,7 +41,7 @@ public class Receta {
 		return this.nombreDelPlato;
 	}
 
-	public Dificultad getDificultad() {
+	public EnumDificultadReceta getDificultad() {
 		return this.dificultad;
 	}
 
@@ -52,7 +49,7 @@ public class Receta {
 		return this.explicacion;
 	}
 
-	public Temporada getTemporada() {
+	public EnumTemporadaReceta getTemporada() {
 		return this.temporada;
 	}
 

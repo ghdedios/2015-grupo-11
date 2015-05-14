@@ -1,7 +1,5 @@
 package dds.grupo11;
 
-import dds.grupo11.Usuario.Rutina;
-
 
 
 public class Diabetico implements Condicion {
@@ -11,7 +9,7 @@ public class Diabetico implements Condicion {
 	}
 
 	public boolean cumpleCondicionDeRutinaSaludable(Usuario usuario){
-		return (usuario.getPeso() < 70 || usuario.getRutina().equals(Rutina.INTENSIVO) || usuario.getRutina().equals(Rutina.FUERTE));
+		return (usuario.getPeso() < 70 || usuario.getRutina().equals(EnumRutina.INTENSIVO) || usuario.getRutina().equals(EnumRutina.FUERTE));
 	}
 
 	public boolean validarReceta(Receta unaReceta) {
