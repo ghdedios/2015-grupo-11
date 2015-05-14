@@ -11,8 +11,6 @@ public class UsuarioMinimo {
 	protected String sexo;
 	
 
-	//TODO: VALIDAR DATOS DEL USUARIO
-	//Corregido en metodo
 	public UsuarioMinimo (String nombre, double altura, double peso,LocalDate fechaNac, String sexo){
 		this.nombre = nombre;
 		this.altura = altura;

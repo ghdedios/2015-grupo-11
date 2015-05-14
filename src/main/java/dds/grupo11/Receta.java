@@ -11,8 +11,6 @@ public class Receta {
 	private Collection <Ingrediente> condimentos = new HashSet<Ingrediente>();
 	private String nombreDelPlato;
 	private String explicacion;
-	//TODO: CAMBIAR POR ENUM
-	//CORREGIDO	
 	public enum Temporada{OTONIO,INVIERNO,PRIMAVERA,VERANO,TODO_EL_ANIO}
 	private Temporada temporada;
 	

@@ -18,8 +18,7 @@ public class Ingrediente {
 		this.nombre=nombre;
 		this.cantidad=cantidad;
 	}
-	
-	//Getters, no se si hacen falta. Cualquier cosa se borran
+
 	public String getNombre(){
 		return this.nombre;
 	}

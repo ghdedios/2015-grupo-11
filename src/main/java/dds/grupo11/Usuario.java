@@ -10,16 +10,11 @@ public class Usuario extends UsuarioMinimo{
 		super(nombre, altura, peso, fechaNac, sexo);
 		}
 
-	//FIXME: VER EL TIPO DE LA COLECCION JUNTO CON LA QUE ESTA EN VEGANO
-	//Corregido
+
 	private Collection <Ingrediente> comidasPreferidas = new HashSet<Ingrediente>();
-	//TODO: SI MODIFICAN LA DE ARRIBA MIREN ESTA TMB
-	//Corregido
 	private Collection<Ingrediente> comidasQueDisgustan = new HashSet<Ingrediente>();
 	private Collection<Condicion> condicionesPreexistentes = new HashSet<Condicion>();
 	private Collection<Receta> recetas = new HashSet<Receta>();
-	//TODO: CANBIAR POR ENUM
-	//corregido
 	public enum Rutina{LEVE,NADA, MEDIANO, FUERTE, INTENSIVO}; 
 	private Rutina rutina; 
 	
@@ -42,8 +37,6 @@ public class Usuario extends UsuarioMinimo{
 		}
 	}
 	
-	//FIXME agregar validaciones de parametros para instanciar usuario nombre,sexo,bla bl bla
-	//Corregido
 	public boolean usuarioValido(){
 		return usuarioCumpleCondicionesPreexistentes() &&
 		nombre.length()>4 &&
@@ -69,8 +62,7 @@ public class Usuario extends UsuarioMinimo{
 	}
 	//Fin de condiciones de usuario valido
 
-	//FIXME
-	//Corregido
+
 	public boolean sigueRutinaSaludable(){
 		return calcularImc()>=18 && calcularImc()<=30 &&
 		 (condicionesPreexistentes.isEmpty() || cumpleTodasLasCondiciones());
