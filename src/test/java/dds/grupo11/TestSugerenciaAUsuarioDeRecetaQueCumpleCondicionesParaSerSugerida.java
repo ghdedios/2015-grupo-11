@@ -22,6 +22,6 @@ public class TestSugerenciaAUsuarioDeRecetaQueCumpleCondicionesParaSerSugerida {
 	
 	@Test
 	public void sugerirRecetaSinIngredientesQueDisgustenAlUsuario() throws Exception{
-		assertTrue(usuario.sugerir(receta));
+		assertTrue(receta.puedeSerSugeridaAUnUsuario(usuario));
 	}
 }

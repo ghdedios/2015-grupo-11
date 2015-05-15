@@ -45,6 +45,9 @@ public class Receta {
 		return !(this.condimentos.stream().anyMatch(condimento->condimentos.contains(condimento)));
 	}
 
+	public boolean puedeSerSugeridaAUnUsuario(Usuario usuario){
+		return !ingredientes.stream().anyMatch(ingrediente -> usuario.getComidasFeas().stream().map(comida -> comida.getNombre()).anyMatch(nombreDeComidaFea -> nombreDeComidaFea.equalsIgnoreCase(ingrediente.getNombre())));
+	}
 	
 	//=================================================================
 	//Fin METODOS ENTREGA 1

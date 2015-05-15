@@ -20,8 +20,21 @@ public class Usuario extends UsuarioMinimo{
 	public boolean sugerir(Receta receta){
 		//Collection <String> nombresDeComidasQueDisgustan = new HashSet<String>();
 		//nombresDeComidasQueDisgustan = (Collection<String>) this.comidasQueDisgustan.stream().map(ingrediente -> ingrediente.getNombre());
+		return noComparteComidasQueLeDisgustanConReceta(receta) && usuarioAceptaríaReceta(receta);
+	}
+
+
+	public boolean noComparteComidasQueLeDisgustanConReceta(Receta receta) {
 		return receta.getIngredientes().stream().map(ingrediente -> ingrediente.getNombre()).anyMatch(nombreIngrediente -> ((Collection<Ingrediente>) this.comidasQueDisgustan.stream().map(ingrediente -> ingrediente.getNombre())).contains(nombreIngrediente));
 	};
+	
+	public boolean usuarioAceptaríaReceta(Receta receta){
+		//TODO: hacer este metodo
+		//clonar usuario
+		//usuarioClonado.agregarReceta
+		//return this.recetas.size() < usuarioClonado.getRecetas().size()
+		return true;
+	}
 	
 	//=================================================================
 	//METODOS ENTREGA 1
@@ -106,6 +119,8 @@ public class Usuario extends UsuarioMinimo{
 		this.rutina=rutina;
 	}
 	
+
+	
 	public void setearCondicion (Condicion condicion){
 		condicionesPreexistentes.add(condicion);
 	}
@@ -124,6 +139,10 @@ public class Usuario extends UsuarioMinimo{
 
 	public Collection <Receta> getRecetas() {
 		return this.recetas;
+	}
+	
+	public Collection<Ingrediente> getComidasFeas(){
+		return this.comidasQueDisgustan;
 	}
 	//=================================================================
 	//Fin GETTERS Y SETTERS
