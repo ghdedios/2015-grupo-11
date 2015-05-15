@@ -34,6 +34,12 @@ public class Receta {
 	public boolean esValida(){
 		return (this.totalCalorias>10 && this.totalCalorias<5000 && this.ingredientes.size()>0);
 	}
+	
+	public boolean sugerirRecetaAUsuario(Usuario usuario){
+		return !(this.ingredientes.stream().anyMatch
+				(ingrediente -> (usuario.getComidasFeas().stream().map(comida -> comida.getNombre())).anyMatch
+						(nombreDeComidaFea -> nombreDeComidaFea.equalsIgnoreCase(ingrediente.getNombre()))));
+	}
 
 
 	public double cantidadDeAzucar(){

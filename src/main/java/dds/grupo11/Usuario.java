@@ -14,14 +14,7 @@ public class Usuario extends UsuarioMinimo{
 	private Collection<Condicion> condicionesPreexistentes = new HashSet<Condicion>();
 	private Collection<Receta> recetas = new HashSet<Receta>();
 	private EnumRutina rutina; 
-	
-	
-	
-	public boolean sugerir(Receta receta){
-		//Collection <String> nombresDeComidasQueDisgustan = new HashSet<String>();
-		//nombresDeComidasQueDisgustan = (Collection<String>) this.comidasQueDisgustan.stream().map(ingrediente -> ingrediente.getNombre());
-		return receta.getIngredientes().stream().map(ingrediente -> ingrediente.getNombre()).anyMatch(nombreIngrediente -> ((Collection<Ingrediente>) this.comidasQueDisgustan.stream().map(ingrediente -> ingrediente.getNombre())).contains(nombreIngrediente));
-	};
+		
 	
 	//=================================================================
 	//METODOS ENTREGA 1
@@ -41,9 +34,13 @@ public class Usuario extends UsuarioMinimo{
 	}
 	
 	public void agregarReceta(Receta receta){
-		if(condicionesPreexistentes.stream().allMatch(condicion -> condicion.validarReceta(receta))){
+		if(cumpleCondicionesValidasParaElUsuario(receta)){
 		recetas.add(receta); 
 		}
+	}
+
+	public boolean cumpleCondicionesValidasParaElUsuario(Receta receta) {
+		return condicionesPreexistentes.stream().allMatch(condicion -> condicion.validarReceta(receta));
 	}
 	
 	public boolean usuarioValido(){
@@ -85,6 +82,8 @@ public class Usuario extends UsuarioMinimo{
 	public boolean LeGustanLasFrutas(){
 		return comidasPreferidas.stream().map(ingrediente -> ingrediente.getNombre()).anyMatch(nombre -> nombre.equals("frutas"));
 	}
+	
+	
 	//=================================================================
 	//Fin METODOS ENTREGA 1
 	//=================================================================
@@ -128,4 +127,8 @@ public class Usuario extends UsuarioMinimo{
 	//=================================================================
 	//Fin GETTERS Y SETTERS
 	//=================================================================
+
+	public Collection<Ingrediente> getComidasFeas() {
+		return this.comidasQueDisgustan;
+	}
 }
