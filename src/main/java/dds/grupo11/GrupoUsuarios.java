@@ -9,4 +9,13 @@ public class GrupoUsuarios {
 	private String nombre;
 	private Collection <String> palabrasClave = new HashSet <String>();
 	
+	public GrupoUsuarios(String nombre, Collection<String> palabrasClave){
+		this.nombre = nombre;
+		this.palabrasClave = palabrasClave;
+	}
+	
+	public void agregarUsuario(Usuario usuario){
+		this.usuarios.add(usuario);
+	}
+	
 }

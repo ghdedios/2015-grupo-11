@@ -14,7 +14,18 @@ public class Usuario extends UsuarioMinimo{
 	private Collection<Condicion> condicionesPreexistentes = new HashSet<Condicion>();
 	private Collection<Receta> recetas = new HashSet<Receta>();
 	private EnumRutina rutina; 
-
+	
+	
+	
+	public boolean sugerir(Receta receta){
+		//Collection <String> nombresDeComidasQueDisgustan = new HashSet<String>();
+		//nombresDeComidasQueDisgustan = (Collection<String>) this.comidasQueDisgustan.stream().map(ingrediente -> ingrediente.getNombre());
+		return receta.getIngredientes().stream().map(ingrediente -> ingrediente.getNombre()).anyMatch(nombreIngrediente -> ((Collection<Ingrediente>) this.comidasQueDisgustan.stream().map(ingrediente -> ingrediente.getNombre())).contains(nombreIngrediente));
+	};
+	
+	//=================================================================
+	//METODOS ENTREGA 1
+	//=================================================================
 	
 	public boolean verReceta(Receta receta){
 		return !receta.esPrivada() || recetas.contains(receta);
@@ -74,11 +85,13 @@ public class Usuario extends UsuarioMinimo{
 	public boolean LeGustanLasFrutas(){
 		return comidasPreferidas.stream().map(ingrediente -> ingrediente.getNombre()).anyMatch(nombre -> nombre.equals("frutas"));
 	}
-	
+	//=================================================================
+	//Fin METODOS ENTREGA 1
+	//=================================================================
 	
 	
 	//=================================================================
-	// Getters y setters
+	// GETTERS Y SETTERS
 	//=================================================================
 	
 	public String getSexo(){
@@ -101,6 +114,10 @@ public class Usuario extends UsuarioMinimo{
 		comidasPreferidas.add(comida);
 	}
 
+	public void setearComidaQueLeDisgusta(Ingrediente comida) {
+		comidasQueDisgustan.add(comida);
+	}
+	
 	public double getPeso() {
 		return this.peso;
 	}
@@ -109,6 +126,6 @@ public class Usuario extends UsuarioMinimo{
 		return this.recetas;
 	}
 	//=================================================================
-	//Fin getters y setters
+	//Fin GETTERS Y SETTERS
 	//=================================================================
 }
