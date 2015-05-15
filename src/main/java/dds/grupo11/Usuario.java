@@ -16,7 +16,7 @@ public class Usuario extends UsuarioMinimo{
 	private EnumRutina rutina; 
 	
 	public boolean sugerir(Receta receta){
-		return noComparteComidasQueLeDisgustanConReceta(receta) && cumpleCondicionesValidasParaElUsuario(receta);
+		return noComparteComidasQueLeDisgustanConReceta(receta) && cumpleCondicionesValidas(receta);
 	}
 
 
@@ -46,12 +46,12 @@ public class Usuario extends UsuarioMinimo{
 	}
 	
 	public void agregarReceta(Receta receta){
-		if(cumpleCondicionesValidasParaElUsuario(receta)){
+		if(cumpleCondicionesValidas(receta)){
 		recetas.add(receta); 
 		}
 	}
 
-	public boolean cumpleCondicionesValidasParaElUsuario(Receta receta) {
+	public boolean cumpleCondicionesValidas(Receta receta) {
 		return condicionesPreexistentes.stream().allMatch(condicion -> condicion.validarReceta(receta));
 	}
 	
