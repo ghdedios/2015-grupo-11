@@ -23,7 +23,7 @@ public class TestUnaRecetaNoPuedeSerSugeridaAUsuario {
 	
 	@Test
 	public void sugerirRecetaSinIngredientesQueDisgustenAlUsuario() throws Exception{
-		assertFalse(receta.sugerirRecetaAUsuario(usuario));
+		assertFalse(usuario.sugerir(receta));
 	}
 
 }

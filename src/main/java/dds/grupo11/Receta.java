@@ -2,6 +2,7 @@ package dds.grupo11;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
 public class Receta {
 	
@@ -18,12 +19,7 @@ public class Receta {
 	private EnumDificultadReceta dificultad;
 	private double totalCalorias;
 	
-	public boolean sugerirRecetaAUsuario(Usuario usuario){
-		return !(this.ingredientes.stream().anyMatch
-				(ingrediente -> (usuario.getComidasFeas().stream().map(comida -> comida.getNombre())).anyMatch
-						(nombreDeComidaFea -> nombreDeComidaFea.equalsIgnoreCase(ingrediente.getNombre()))));
-	}
-
+	
 	
 	//=================================================================
 	//METODOS ENTREGA 1
@@ -104,4 +100,8 @@ public class Receta {
 	//=================================================================
 	//Fin GETTERS Y SETTERS
 	//=================================================================
+
+	public Collection<String> getnombreDeIngredientes() {
+		return ingredientes.stream().map(Ingrediente::getNombre).collect(Collectors.toList());
+	}
 }

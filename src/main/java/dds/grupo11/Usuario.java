@@ -22,7 +22,7 @@ public class Usuario extends UsuarioMinimo{
 
 	public boolean noComparteComidasQueLeDisgustanConReceta(Receta receta) {
 		return !this.comidasQueDisgustan.stream().anyMatch
-				(comidaFea -> (receta.getIngredientes().stream().map(ingrediente -> ingrediente.getNombre()).anyMatch
+				(comidaFea -> (receta.getnombreDeIngredientes().stream().anyMatch
 						(nombreIngrediente -> nombreIngrediente.equalsIgnoreCase(comidaFea.getNombre()))));
 	};
 
