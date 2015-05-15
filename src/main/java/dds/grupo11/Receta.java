@@ -18,6 +18,12 @@ public class Receta {
 	private EnumDificultadReceta dificultad;
 	private double totalCalorias;
 	
+	public boolean sugerirRecetaAUsuario(Usuario usuario){
+		return !(this.ingredientes.stream().anyMatch
+				(ingrediente -> (usuario.getComidasFeas().stream().map(comida -> comida.getNombre())).anyMatch
+						(nombreDeComidaFea -> nombreDeComidaFea.equalsIgnoreCase(ingrediente.getNombre()))));
+	}
+
 	
 	//=================================================================
 	//METODOS ENTREGA 1
@@ -34,7 +40,8 @@ public class Receta {
 	public boolean esValida(){
 		return (this.totalCalorias>10 && this.totalCalorias<5000 && this.ingredientes.size()>0);
 	}
-
+	
+	
 
 	public double cantidadDeAzucar(){
 		return condimentos.stream().filter(condimento -> condimento.getNombre().equals("Azucar")).findFirst().get().getCantidad();
@@ -45,10 +52,6 @@ public class Receta {
 		return !(this.condimentos.stream().anyMatch(condimento->condimentos.contains(condimento)));
 	}
 
-	public boolean puedeSerSugeridaAUnUsuario(Usuario usuario){
-		return !ingredientes.stream().anyMatch(ingrediente -> usuario.getComidasFeas().stream().map(comida -> comida.getNombre()).anyMatch(nombreDeComidaFea -> nombreDeComidaFea.equalsIgnoreCase(ingrediente.getNombre())));
-	}
-	
 	//=================================================================
 	//Fin METODOS ENTREGA 1
 	//=================================================================
