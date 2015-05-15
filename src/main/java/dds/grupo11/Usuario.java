@@ -13,7 +13,6 @@ public class Usuario extends UsuarioMinimo{
 	private Collection<Ingrediente> comidasQueDisgustan = new HashSet<Ingrediente>();
 	private Collection<Condicion> condicionesPreexistentes = new HashSet<Condicion>();
 	private Collection<Receta> recetas = new HashSet<Receta>();
-	
 	private EnumRutina rutina; 
 
 	
@@ -52,9 +51,6 @@ public class Usuario extends UsuarioMinimo{
 		return comidasPreferidas.size() > 0;	
 	}
 	
-	public String getSexo(){
-		return this.sexo;
-	}
 	
 	public boolean noComeAnimales(Collection <Ingrediente> comidasProhibidas){
 		return (comidasPreferidas.stream().filter(comida -> comidasProhibidas.contains(comida))).count() > 0;
@@ -79,6 +75,16 @@ public class Usuario extends UsuarioMinimo{
 		return comidasPreferidas.stream().map(ingrediente -> ingrediente.getNombre()).anyMatch(nombre -> nombre.equals("frutas"));
 	}
 	
+	
+	
+	//=================================================================
+	// Getters y setters
+	//=================================================================
+	
+	public String getSexo(){
+		return this.sexo;
+	}
+	
 	public EnumRutina getRutina(){
 		return this.rutina;
 	}
@@ -93,7 +99,6 @@ public class Usuario extends UsuarioMinimo{
 
 	public void setearComidaPreferida(Ingrediente comida) {
 		comidasPreferidas.add(comida);
-		
 	}
 
 	public double getPeso() {
@@ -103,4 +108,7 @@ public class Usuario extends UsuarioMinimo{
 	public Collection <Receta> getRecetas() {
 		return this.recetas;
 	}
+	//=================================================================
+	//Fin getters y setters
+	//=================================================================
 }
