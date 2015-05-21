@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestUnaRecetaNoPuedeSerSugeridaAUsuario {
+public class TestSugerenciaDeRecetaConComidaQueDisgustaAlUsuarioDebeSerInvalida {
 	
 	private Usuario usuario;
 	private Receta receta;
@@ -22,7 +22,7 @@ public class TestUnaRecetaNoPuedeSerSugeridaAUsuario {
 	}
 	
 	@Test
-	public void sugerirRecetaSinIngredientesQueDisgustenAlUsuario() throws Exception{
+	public void sugerirRecetaConIngredientesQueDisgustenAlUsuario() throws Exception{
 		assertFalse(usuario.sugerir(receta));
 	}
 
