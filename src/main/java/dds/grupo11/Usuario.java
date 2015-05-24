@@ -20,7 +20,7 @@ public class Usuario extends UsuarioMinimo{
 	/*
 	public Collection<Receta> recetasQueTieneAcceso(){
 		private Collection<Receta> a = new HashSet <Receta>();
-		a = this.recetas.addAll(repoRecetas.listarTodas().stream().filter(receta -> !(receta.esPrivada())));	//(repoRecetas.listarTodas().stream().filter(receta -> !(receta.esPrivada()))).addAll;
+		a = this.recetas.addAll(repoRecetas.listarTodas().stream().filter(receta -> this.verReceta(receta)));	//(repoRecetas.listarTodas().stream().filter(receta -> !(receta.esPrivada()))).addAll;
 		a = a.addAll()
 		return 0;
 	}
