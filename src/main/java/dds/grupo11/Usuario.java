@@ -15,7 +15,8 @@ public class Usuario extends UsuarioMinimo{
 	private Collection<Receta> recetas = new HashSet<Receta>();
 	private EnumRutina rutina; 
 	private RepositorioRecetas repoRecetas;
-	private Collection <GrupoUsuarios> gruposDeUsuarioAlQuePertenece = new HashSet<GrupoUsuarios>();
+	private Collection <GrupoUsuarios> gruposDeUsuariosAlQuePertenece = new HashSet<GrupoUsuarios>();
+
 	
 	/*
 	public Collection<Receta> recetasQueTieneAcceso(){
@@ -43,9 +44,9 @@ public class Usuario extends UsuarioMinimo{
 	//=================================================================
 	
 	
-	//Agregar que pueda ver las recetas de sus compañeros de grupo de usuario
+
 	public boolean verReceta(Receta receta){
-		return !receta.esPrivada() || recetas.contains(receta);
+		return !receta.esPrivada() || recetas.contains(receta) || gruposDeUsuariosAlQuePertenece.stream().filter(grupoDeUsuarios -> grupoDeUsuarios.tieneRecetaEntreSusUsuarios(receta)).count()>0;
 	}
 	
 	//FIXME: clonar receta original 

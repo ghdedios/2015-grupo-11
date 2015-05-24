@@ -23,4 +23,9 @@ public class GrupoUsuarios {
 	public boolean sugerir(Receta receta){
 		return usuarios.stream().allMatch(usuario -> usuario.sugerir(receta));
 	}
+	
+	public boolean tieneRecetaEntreSusUsuarios(Receta receta){
+		return usuarios.stream().filter(usuario -> usuario.getRecetas().contains(receta)).count()>0;
+		
+	}
 }
