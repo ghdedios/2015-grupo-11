@@ -9,12 +9,22 @@ public class Usuario extends UsuarioMinimo{
 		}
 
 
-	private Collection <Ingrediente> comidasPreferidas = new HashSet<Ingrediente>();
+	private Collection<Ingrediente> comidasPreferidas = new HashSet<Ingrediente>();
 	private Collection<Ingrediente> comidasQueDisgustan = new HashSet<Ingrediente>();
 	private Collection<Condicion> condicionesPreexistentes = new HashSet<Condicion>();
 	private Collection<Receta> recetas = new HashSet<Receta>();
 	private EnumRutina rutina; 
+	private RepositorioRecetas repoRecetas;
+	private Collection <GrupoUsuarios> gruposDeUsuarioAlQuePertenece = new HashSet<GrupoUsuarios>();
 	
+	/*
+	public Collection<Receta> recetasQueTieneAcceso(){
+		private Collection<Receta> a = new HashSet <Receta>();
+		a = this.recetas.addAll(repoRecetas.listarTodas().stream().filter(receta -> !(receta.esPrivada())));	//(repoRecetas.listarTodas().stream().filter(receta -> !(receta.esPrivada()))).addAll;
+		a = a.addAll()
+		return 0;
+	}
+	*/
 	public boolean sugerir(Receta receta){
 		return noComparteComidasQueLeDisgustanConReceta(receta) && cumpleCondicionesValidas(receta);
 	}
@@ -32,6 +42,8 @@ public class Usuario extends UsuarioMinimo{
 	//METODOS ENTREGA 1
 	//=================================================================
 	
+	
+	//Agregar que pueda ver las recetas de sus compañeros de grupo de usuario
 	public boolean verReceta(Receta receta){
 		return !receta.esPrivada() || recetas.contains(receta);
 	}
