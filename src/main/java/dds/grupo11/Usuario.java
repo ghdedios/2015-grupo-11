@@ -13,10 +13,10 @@ public class Usuario extends DatosMinimosUsuario {
 	private Collection<Ingrediente> comidasQueDisgustan = new HashSet<Ingrediente>();
 	private Collection<Condicion> condicionesPreexistentes = new HashSet<Condicion>();
 	private Collection<Receta> recetas = new HashSet<Receta>();
+	private Collection<Receta> favoritos = new HashSet<Receta>();
 	private EnumRutina rutina; 
 	private Collection <GrupoUsuarios> gruposDeUsuariosAlQuePertenece = new HashSet<GrupoUsuarios>();
 
-	
 	public boolean sugerir(Receta receta){
 		return noComparteComidasQueLeDisgustanConReceta(receta) && cumpleCondicionesValidas(receta);
 	}
@@ -31,8 +31,11 @@ public class Usuario extends DatosMinimosUsuario {
 		return gruposDeUsuariosAlQuePertenece.stream().filter(grupoDeUsuarios -> grupoDeUsuarios.tieneRecetaEntreSusUsuarios(receta)).count()>0;
 	}
 
+	public void agregarAFavoritos(Receta receta){
+		this.favoritos.add(receta);
+	}
 	
-
+	
 	//=================================================================
 	//METODOS ENTREGA 1
 	//=================================================================
@@ -149,6 +152,11 @@ public class Usuario extends DatosMinimosUsuario {
 	public Collection<Ingrediente> getComidasFeas(){
 		return this.comidasQueDisgustan;
 	}
+	
+	public Collection<Receta> getFavoritos(){
+		return this.favoritos;
+	}
+	
 	//=================================================================
 	//Fin GETTERS Y SETTERS
 	//=================================================================
