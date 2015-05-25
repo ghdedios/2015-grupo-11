@@ -12,7 +12,7 @@ public class FiltroIngredientesCaros extends ConsultaDecorator {
 	@Override
 	public Collection<Receta> consultarRecetas(Usuario usuario) {
 		return this.consulta.consultarRecetas(usuario)
-				.stream().filter(receta -> receta.tieneIngredientesCaros()).collect(Collectors.toSet());
+				.stream().filter(receta -> !receta.tieneIngredientesCaros()).collect(Collectors.toSet());
 		}
 
 }
