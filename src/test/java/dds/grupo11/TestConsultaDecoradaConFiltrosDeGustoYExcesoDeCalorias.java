@@ -1,6 +1,6 @@
 package dds.grupo11;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertTrue; 
 
 import java.time.LocalDate;
 import java.util.Collection;
@@ -19,17 +19,17 @@ public class TestConsultaDecoradaConFiltrosDeGustoYExcesoDeCalorias {
 	private Receta recetaNueva2;
 	private Receta recetaNueva3;
 	private Ingrediente ingrediente;
-	private MockRepositorio mockedRepo;
-	private Consulta consultaSinDecorar = new ConsultaSinFiltros(mockedRepo);
-		
+	private RepositorioRecetas mockedRepo;
+	
+			
 	@Before
 	public void setUp(){
-		this.mockedRepo = mock(MockRepositorio.class);	
+		mockedRepo = mock(RepositorioRecetas.class);	
 		usuario = new Usuario("Usuario duenio de receta",1.80,75,LocalDate.of(1990,1,1),"Hombre");
 		
 		recetaNueva1 = new Receta(true,"milanesas con pure",EnumDificultadReceta.BAJA,"Empanar y freir milanesas.Luego..",EnumTemporadaReceta.TODO_EL_ANIO);
 		recetaNueva1.setTotalCalorias(750);
-		this.mockedRepo.agregar(recetaNueva1);
+		mockedRepo.agregar(recetaNueva1);
 				
 		recetaNueva2 = new Receta(true,"tortilla de papa",EnumDificultadReceta.MEDIA,"Cortar y freir papas.Luego..",EnumTemporadaReceta.VERANO);
 				
@@ -42,14 +42,16 @@ public class TestConsultaDecoradaConFiltrosDeGustoYExcesoDeCalorias {
 		
 		recetasFiltradas.add(recetaNueva2);
 		
-		consultaSinDecorar = new FiltroGustoUsuario(new FiltroExcesoCalorias(15,consultaSinDecorar));
-		
 		
 	}
 	
 	@Test
 	public void UsuarioRealizaConsultaDecorada() throws Exception{
-		assertTrue(consultaSinDecorar.consultarRecetas(this.usuario).containsAll(recetasFiltradas));
+		Consulta consultaSinDecorar = new ConsultaSinFiltros(mockedRepo);
+		consultaSinDecorar = new FiltroExcesoCalorias(15,consultaSinDecorar);
+		consultaSinDecorar = new FiltroGustoUsuario(consultaSinDecorar);
+		
+		assertTrue(consultaSinDecorar.consultarRecetas(usuario).containsAll(recetasFiltradas));
 	}
 	
 	
