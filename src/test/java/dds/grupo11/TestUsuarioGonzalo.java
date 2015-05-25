@@ -11,13 +11,13 @@ import org.junit.Test;
 
 public class TestUsuarioGonzalo {
 
-	private UsuarioMinimo usuarioGonzalo;
+	private DatosMinimosUsuario usuarioGonzalo;
 	
 	
 	@Before
 	public void setUp(){
 		
-		usuarioGonzalo = new UsuarioMinimo("Gonzalo",1.65,69,LocalDate.of(1994,3,19),"Hombre");
+		usuarioGonzalo = new DatosMinimosUsuario("Gonzalo",1.65,69,LocalDate.of(1994,3,19),"Hombre");
 		
 	}
 	

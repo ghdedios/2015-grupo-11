@@ -2,7 +2,7 @@ package dds.grupo11;
 
 import java.time.LocalDate; 
 import java.util.*;
-public class Usuario extends UsuarioMinimo{
+public class Usuario extends DatosMinimosUsuario {
 	
 	public Usuario(String nombre, double altura, double peso,LocalDate fechaNac, String sexo) {
 		super(nombre, altura, peso, fechaNac, sexo);
@@ -14,28 +14,22 @@ public class Usuario extends UsuarioMinimo{
 	private Collection<Condicion> condicionesPreexistentes = new HashSet<Condicion>();
 	private Collection<Receta> recetas = new HashSet<Receta>();
 	private EnumRutina rutina; 
-	private RepositorioRecetas repoRecetas;
 	private Collection <GrupoUsuarios> gruposDeUsuariosAlQuePertenece = new HashSet<GrupoUsuarios>();
 
 	
-	/*
-	public Collection<Receta> recetasQueTieneAcceso(){
-		private Collection<Receta> a = new HashSet <Receta>();
-		a = this.recetas.addAll(repoRecetas.listarTodas().stream().filter(receta -> this.verReceta(receta)));	//(repoRecetas.listarTodas().stream().filter(receta -> !(receta.esPrivada()))).addAll;
-		a = a.addAll()
-		return 0;
-	}
-	*/
 	public boolean sugerir(Receta receta){
 		return noComparteComidasQueLeDisgustanConReceta(receta) && cumpleCondicionesValidas(receta);
 	}
-
-
+	
 	public boolean noComparteComidasQueLeDisgustanConReceta(Receta receta) {
 		return !this.comidasQueDisgustan.stream().anyMatch
 				(comidaFea -> (receta.getnombreDeIngredientes().stream().anyMatch
 						(nombreIngrediente -> nombreIngrediente.equalsIgnoreCase(comidaFea.getNombre()))));
 	};
+	
+	public boolean esRecetaDeUsuarioAmigoDelGrupo(Receta receta) {
+		return gruposDeUsuariosAlQuePertenece.stream().filter(grupoDeUsuarios -> grupoDeUsuarios.tieneRecetaEntreSusUsuarios(receta)).count()>0;
+	}
 
 	
 
@@ -46,9 +40,9 @@ public class Usuario extends UsuarioMinimo{
 	
 
 	public boolean verReceta(Receta receta){
-		return !receta.esPrivada() || recetas.contains(receta) || gruposDeUsuariosAlQuePertenece.stream().filter(grupoDeUsuarios -> grupoDeUsuarios.tieneRecetaEntreSusUsuarios(receta)).count()>0;
+		return !receta.esPrivada() || recetas.contains(receta) || esRecetaDeUsuarioAmigoDelGrupo(receta);
 	}
-	
+
 	//FIXME: clonar receta original 
 	public void agregarRecetaModificada(Receta receta, String nombre, EnumDificultadReceta dificultad, String explicacion, EnumTemporadaReceta temporada){
 		if(verReceta(receta)){

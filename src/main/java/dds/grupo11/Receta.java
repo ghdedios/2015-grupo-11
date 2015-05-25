@@ -1,6 +1,6 @@
 package dds.grupo11;
 
-import java.util.Collection;
+import java.util.Collection; 
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
@@ -12,6 +12,7 @@ public class Receta {
 	private boolean esPrivada;
 	private Collection <Receta> subrecetas = new HashSet<Receta>();
 	private Collection <Ingrediente> ingredientes = new HashSet<Ingrediente>();
+	private Collection <Ingrediente> ingredientesCaros = new HashSet<Ingrediente>();
 	private Collection <Ingrediente> condimentos = new HashSet<Ingrediente>();
 	private String nombreDelPlato;
 	private String explicacion;
@@ -57,6 +58,10 @@ public class Receta {
 	// GETTERS Y SETTERS
 	//=================================================================
 	
+	public Collection<String> getnombreDeIngredientes() {
+		return ingredientes.stream().map(Ingrediente::getNombre).collect(Collectors.toList());
+	}
+	
 	public void agregarIngrediente(Ingrediente ingrediente){
 		this.ingredientes.add(ingrediente);
 	}
@@ -97,11 +102,19 @@ public class Receta {
 	public Collection<Ingrediente> getIngredientes(){
 		return this.ingredientes;
 	}
+	
+	public double getCalorias(){
+		return this.totalCalorias;
+	}
+
+	public boolean tieneIngredientesCaros() {
+		return this.ingredientesCaros.size() > 0;
+	}
+	
+	public void setTotalCalorias(double calorias){
+		this.totalCalorias = calorias;
+	}
+}
 	//=================================================================
 	//Fin GETTERS Y SETTERS
 	//=================================================================
-
-	public Collection<String> getnombreDeIngredientes() {
-		return ingredientes.stream().map(Ingrediente::getNombre).collect(Collectors.toList());
-	}
-}

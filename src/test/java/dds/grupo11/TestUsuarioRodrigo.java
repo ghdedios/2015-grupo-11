@@ -8,11 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TestUsuarioRodrigo {
-	private UsuarioMinimo rodrigo;
+	private DatosMinimosUsuario rodrigo;
 	
 	@Before
 	public void setUp(){
-		rodrigo = new UsuarioMinimo("Rodrigo",1.81,82,LocalDate.of(1995,3,2),"Hombre");
+		rodrigo = new DatosMinimosUsuario("Rodrigo",1.81,82,LocalDate.of(1995,3,2),"Hombre");
 	}
 	
 	@Test

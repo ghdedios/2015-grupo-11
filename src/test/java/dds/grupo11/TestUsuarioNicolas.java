@@ -1,6 +1,6 @@
 package dds.grupo11;
 
-import static org.junit.Assert.assertEquals; 
+import static org.junit.Assert.assertEquals;  
 
 import java.time.LocalDate;
 
@@ -9,12 +9,12 @@ import org.junit.Test;
 
 public class TestUsuarioNicolas {
 	
-	private UsuarioMinimo nicolas;
+	private DatosMinimosUsuario nicolas;
 	
 	@Before
 	public void setUp(){
 		
-		nicolas = new UsuarioMinimo("Nicolas",1.83,77,LocalDate.of(1995,1,12),"Hombre");
+		nicolas = new DatosMinimosUsuario("Nicolas",1.83,77,LocalDate.of(1995,1,12),"Hombre");
 	}
 	
 	@Test
