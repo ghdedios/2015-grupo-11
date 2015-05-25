@@ -152,6 +152,11 @@ public class Usuario extends DatosMinimosUsuario {
 	public Collection<Ingrediente> getComidasFeas(){
 		return this.comidasQueDisgustan;
 	}
+	
+	public Collection<Receta> getFavoritos(){
+		return this.favoritos;
+	}
+	
 	//=================================================================
 	//Fin GETTERS Y SETTERS
 	//=================================================================
